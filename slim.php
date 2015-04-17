@@ -77,47 +77,47 @@ function response($code, $dataAry)
 
 
     $app->get('/contact' , function () use ($app){
-        $app->render('contact.html.twig', array('title' => 'Home'));
+        $app->render('contact.html.twig', array('title' => 'Contact Us'));
     });
 
     $app->get('/about' , function () use ($app){
-        $app->render('about.html.twig', array('title' => 'Home'));
+        $app->render('about.html.twig', array('title' => 'About Us'));
     });
 
     $app->get('/services' , function () use ($app){
-        $app->render('services.html.twig', array('title' => 'Home'));
+        $app->render('services.html.twig', array('title' => 'Services'));
     });
 
     $app->get('/services/consulting-services' , function () use ($app){
-        $app->render('consulting_services.html.twig', array('title' => 'Home'));
+        $app->render('consulting_services.html.twig', array('title' => 'Consulting Services'));
     });
 
     $app->get('/services/project-managed-services' , function () use ($app){
-        $app->render('project_managed_services.html.twig', array('title' => 'Home'));
+        $app->render('project_managed_services.html.twig', array('title' => 'Project Managed Services'));
     });
 
     $app->get('/services/business-application-services' , function () use ($app){
-        $app->render('business_application_services.html.twig', array('title' => 'Home'));
+        $app->render('business_application_services.html.twig', array('title' => 'Business Application Services'));
     });
 
     $app->get('/services/infrastructure-management-services' , function () use ($app){
-        $app->render('infrastructure_management_services.html.twig', array('title' => 'Home'));
+        $app->render('infrastructure_management_services.html.twig', array('title' => 'Infrastructure Management Services'));
     });
 
     $app->get('/utilities' , function () use ($app){
-        $app->render('utilities.html.twig', array('title' => 'Home'));
+        $app->render('utilities.html.twig', array('title' => 'Utilities'));
     });
 
     $app->get('/retail' , function () use ($app){
-        $app->render('retail.html.twig', array('title' => 'Home'));
+        $app->render('retail.html.twig', array('title' => 'Retail'));
     });
 
     $app->get('/banking' , function () use ($app){
-        $app->render('banking.html.twig', array('title' => 'Home'));
+        $app->render('banking.html.twig', array('title' => 'Banking'));
     });
 
     $app->get('/careers' , function () use ($app){
-        $app->render('careers.html.twig', array('title' => 'Home'));
+        $app->render('careers.html.twig', array('title' => 'Careers'));
     });
 
 
