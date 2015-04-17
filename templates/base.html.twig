@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% block head %}
+            <title>{% block title %}{% endblock %}</title>
+        {% endblock %}
+    </head>
+    <body>
+        {% block nav %}
+			{{ include('partials/nav.html.twig') }}
+        {% endblock %}
+
+
+        {% block content %}
+
+        {% endblock %}
+
+
+        {% block footer %}
+			{{ include('partials/footer.html.twig') }}
+        {% endblock %}
+
+    </body>
+</html>
