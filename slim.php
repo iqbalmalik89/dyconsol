@@ -70,6 +70,9 @@ function response($code, $dataAry)
 
 	$app->requestdata = array_merge($jsonParams, $formParams);
 
+	$app->get('/demo' , function () use ($app){
+        $app->render('demo.html.twig', array('title' => 'Demo'));
+    });
 
     $app->get('/', function () use ($app) {
         $app->render('index.html.twig', array('title' => 'Home'));
