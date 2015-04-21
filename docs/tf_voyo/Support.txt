@@ -1,0 +1,24 @@
+First of all, thank you for purchasing our item. We really appreciate that you 
+have chosen our work and we hope that you will enjoy “playing” with it. Customer 
+satisfaction is our priority and we understand that sometimes you may need help. 
+
+Now, please read the Documentation included with the main file. Many support related 
+questions can be answered simply by reading the documentation thoroughly. 
+
+
+If you still have a question, you are welcome to open a support ticket at:
+
+http://abusinesstheme.freshdesk.com
+
+We will respond to questions as soon as possible. 
+
+
+Support for my items includes:
+	- Responding to questions or problems regarding the item and its features
+	- Fixing bugs and reported issues
+	- Providing updates to ensure compatibility with new software versions
+
+
+Item support does not include:
+	- Customization and installation services
+	- Support for third party software and plug-ins

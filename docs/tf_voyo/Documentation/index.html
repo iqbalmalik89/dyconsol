@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Documentation | Voyo</title>
+	<meta name="author" content="abusinesstheme">
+	<meta name="description" content="Documentation of the Voyo One Template">
+
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+ 	
+
+  	<!-- CSS files -->
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,400italic,600">
+	<link rel="stylesheet" href="assets/css/font-awesome.min.css">
+
+	<style>
+		
+		html {
+			-webkit-font-smoothing: antialiased;
+			min-height: 100%;
+		}
+			
+		body {
+			font-family: "Open Sans", Arial, sans-serif;
+			font-size: 14px;
+			line-height: 25px;
+			font-weight:400;
+			margin: 0;
+			background: #fafafa;
+			color: #666;
+		}
+
+		img {
+			height: auto;
+			max-width: 100%;
+		}
+
+		hr {
+			display: block;
+			line-height: 25px;
+			margin: 30px 0;
+			position: relative;
+			width: 100%;
+		}
+
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6 {
+			font-weight: 200;
+			letter-spacing: -1px;
+			margin: 0;
+			color: #121214;
+		}
+
+		h1 {
+			font-size: 3.2em;
+			line-height: 44px;
+			margin: 0 0 44px 0;
+		}
+
+		h2 {
+			font-size: 2.6em;
+			font-weight: 300;
+			line-height: 42px;
+			margin: 0 0 32px 0;
+		}
+
+		h3 {
+			font-size: 1.8em;
+			font-weight: 400;
+			letter-spacing: normal;
+			line-height: 24px;
+			margin-bottom: 33px;
+		}
+
+		h4 {
+			font-size: 1.4em;
+			font-weight: 400;
+			letter-spacing: normal;
+			line-height: 27px;
+			margin: 0 0 14px 0;
+		}
+
+		h5 {
+			font-size: 1em;
+			font-weight: 600;
+			letter-spacing: normal;
+			line-height: 18px;
+			margin: 0 0 14px 0;
+		}
+
+		h6 {
+			font-size: 1em;
+			font-weight: 400;
+			letter-spacing: normal;
+			line-height: 18px;
+			margin: 0 0 14px 0;
+		}
+
+		p {
+			line-height: 25px;
+			margin: 0 0 20px;
+		}
+
+		a {
+			color:rgb(19, 117, 163);
+		}
+		a:hover {
+			text-decoration:none;
+		}
+		::-moz-selection {
+			text-shadow:none;
+			color: #fff;
+			background:rgba(19, 117, 163,0.8);
+		}
+		::selection {
+			text-shadow:none;
+			color: #fff;
+			background:rgba(19, 117, 163,0.8);
+		}
+		.selection {
+			text-shadow:none;
+			color: #fff !important;
+			background:rgba(19, 117, 163,0.8) !important;
+			padding:0 10px;
+		}
+		.main-text {
+			text-shadow:none;
+			color: rgb(19, 117, 163) !important;
+		}
+
+		.hr {
+			margin: 20px 0 10px;
+			border-top: 1px solid rgb(19, 117, 163);
+		}
+
+		.main-color {
+			color: rgb(19, 117, 163) !important;
+		}
+		.main-background {
+			background-color:rgb(19, 117, 163) !important;
+		}
+
+		.hidden { 
+			display: none !important; 
+		}
+		.full-height {
+			height:100% !important;
+		}
+		.full-width {
+			width:100% !important;
+		}
+		.relative {
+			position:relative !important;
+		}
+		.br0 {
+			border-radius: 0 !important;
+		}
+		.br2 {
+			border-radius:2px !important;
+		}
+		.br4 {
+			border-radius: 4px !important;
+		}
+		.pull-center {
+			display: block;
+			margin-left: auto !important;
+			margin-right: auto !important;
+			clear: both;
+
+			text-align:center;
+		}
+		.mb20 {
+			margin-bottom:20px !important;
+		}
+		.mb40 {
+			margin-bottom:40px !important;
+		}
+		.mt20 {
+			margin-top:20px !important;
+		}
+		.ml20 {
+			margin-left:20px !important;
+		} 
+
+		.elements-content {
+			margin:30px 0;
+		}
+
+		/* Side navigation */
+		.sidebar-affix.affix {
+		  	position: fixed;
+		  	top:60px;
+		  	width: 213px;
+		}
+		.sidebar-affix.affix-bottom {
+		  	position: absolute; 
+		  	width: 213px;
+		  	top:20px;
+		 }
+		.sidebar-affix.affix-top {
+			width:213px;
+			position:absolute;
+			top:20px;
+		}
+
+		.elements-sidebar-nav {
+		  margin:20px 0;
+		}
+
+		/* All levels of nav */
+		.sidebar-affix .nav > li > a {
+		  display: block;
+		  font-size: 14px;
+		  font-weight: 400;
+		  color: #777;
+		  padding: 3px 0;
+		  margin-bottom:12px;
+		  transition: all 0.3s ease-in;
+		  -webkit-transition: all 0.3s ease-in;
+		}
+		.sidebar-affix .nav > li > a:hover,
+		.sidebar-affix .nav > li > a:focus,
+		.sidebar-affix .nav > li.current a  {
+		  padding-left: 15px;
+		  color: rgb(19, 117, 163);
+		  text-decoration: none;
+		  background-color: transparent;
+		  border-left:1px solid rgb(19,117,163);
+		  transition: all 0.3s ease-in;
+		  -webkit-transition: all 0.3s ease-in;
+		}
+
+		.sidebar-affix .nav > .active > a,
+		.sidebar-affix .nav > .active:hover > a,
+		.sidebar-affix .nav > .active:focus > a {
+		  padding-left: 15px;
+		  font-weight: bold;
+		  color: rgb(19, 117, 163);
+		  background-color: transparent;
+		  border-left:1px solid rgb(19,117,163);
+		  transition: all 0.3s ease-in;
+		  -webkit-transition: all 0.3s ease-in;
+		}
+
+		/* Element sections */
+		.elements-section {
+		  	margin-bottom: 60px;
+		}
+		.elements-section:first-child {
+			margin-top:20px;
+		}
+
+		h2.section-title-2 {
+			margin-bottom: 25px;
+			padding: 0 0 5px;
+			border-bottom: 2px solid #e1e1e1;
+			position:relative;
+			font-size:28px;
+			color:#666;
+			font-weight: 400;
+			text-align:left;
+		}
+		h2.section-title-2:after {
+			width: 5%;
+			height: 2px;
+			display: block;
+			content: '';
+			background-color: rgb(19, 117, 163);
+			position: absolute;
+			bottom: -2px;
+			left:0;
+		}
+		.page-header {
+			padding: 40px 10px 20px;
+		  	margin: 0;
+		  	border-bottom: none;
+		  	background: rgb(19, 117, 163);
+		}
+		.page-header p {
+			color: rgba(255,255,255,0.8);
+			font-size: 15px;
+			line-height: 26px;
+			font-weight: 400;
+		}
+		.page-header a {
+			color:#fafafa;
+		}
+		.page-header a:hover {
+			color:#555;
+		}
+
+		#header-wrapper {
+			position:relative;
+			width:100%;
+			margin:0;
+			padding:10px 0;
+			background:#fafafa;
+			border-top:3px solid rgb(19, 117, 163);
+			box-shadow:0 0 20px rgba(0, 0, 0, 0.25); 
+			-moz-box-shadow:0 0 20px rgba(0, 0, 0, 0.25); 
+			-webkit-box-shadow:0 0 20px rgba(0, 0, 0, 0.25);
+		}
+		#header-wrapper h1 {
+			text-align:center;
+			font-weight:500;
+			color:#666;
+			margin:10px 0 20px;
+			font-size:40px;
+		}
+		.page-header .btn-default {
+			border-color: transparent;
+			background-color: #fcfcfc;
+			border-radius: 2px;
+			color: #555;
+		}
+		.page-header .btn-default:hover {
+			color:rgb(19, 117, 163);
+		}
+
+		.footer-wrapper {
+			background: #303030;
+		    color: #ddd;
+		}
+
+		.footer-wrapper p, 
+		.footer-wrapper a {
+			color:#ddd;
+		}
+		.footer-wrapper a:hover {
+			text-decoration: none;
+			color: rgb(19, 117, 163);
+		}
+		.main-footer {
+			 padding-top:50px;
+		}
+		.footer-widget {
+			margin-bottom:30px;
+		}
+		.widget-title {
+		    font-size: 18px;
+		    margin: 0 0 20px 0;
+		    text-transform: uppercase;
+		    color: #f0f0f0;
+		}
+		.sub-footer {
+		    padding: 20px 0;
+		    background: #2d2d2d;
+		}
+		.sub-footer p {
+		    padding: 0;
+		    margin: 0;
+		}
+		.footer-widget-full-width {
+			text-align:center;
+			margin-bottom:30px;
+		}
+
+		#credits-modal ol {
+			padding-left:30px;
+		}
+		pre.prettyprint {
+			background-color: #222 !important;
+			border-radius: 6px !important;
+			margin:10px 0 !important;
+		}
+		h3.box-title {
+			margin: 15px 0 20px;
+			font-size: 18px;
+			font-weight: 500;
+			color: #444;
+		}
+
+		/* Sitemap template */
+		.files-structure ul {
+			margin:0;
+			padding:0;
+			list-style: none;
+		}
+		.files-structureul li ul {
+			margin-top:10px;
+			margin-left:15px;
+		}
+
+		.files-structure ul li {
+			margin-bottom:5px;
+			padding-left:25px;
+		}
+		.files-structure ul li:before {
+			content: '\f054';
+		  	font-family: "FontAwesome";
+		  	display: inline-block;
+		  	margin-left: -16px;
+		  	width: 16px; 
+		  	color:rgb(19, 117, 163);
+		  	font-size:14px;
+		}
+
+	</style>
+
+</head>
+<body>
+
+<!-- Global Wrapper -->
+<div id="wrapper">
+
+	<!-- Header -->
+	<header id="header-wrapper">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12">
+					<h1>Documentation</h1>
+				</div>
+			</div>
+		</div> <!-- END Container -->
+	</header> <!-- END Header -->
+
+	<!-- Page Header -->
+	<header class="page-header">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12 text-center">
+					<p>Thank you for purchasing my template. This documentation covers aspects regarding various customization scenarios. We strongly advise you to read this documentation thoroughly. If you experience difficulties in some areas or if you have any questions that are beyond the scope of this documentation, please feel free to open a support ticket <a href="http://abusinesstheme.freshdesk.com" >here</a>. Thanks so much! </p>
+				</div>
+			</div>
+		</div>
+	</header> <!-- END Page Header -->
+
+
+
+	<section class="elements-content">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-2 hidden-xs hidden-sm">
+					<nav id="sidebar-affix" class="sidebar-affix affix">
+						<ul id="one-page-navigation" class="nav elements-sidebar-nav"> <!-- Need this class-->
+							<li><a href="#update">Update details</a></li>
+							<li><a href="#overview">Overview</a></li>
+							<li><a href="#files">Files Structure</a></li>
+							<li><a href="#html">HTML Structure</a></li>
+							<li><a href="#css">CSS Structure</a></li>
+							<li><a href="#js">JS Structure</a></li>
+							<li><a href="#elements">Elements</a></li>
+							<li><a href="#sections">Sections</a></li>
+							<li><a href="#layout">Layout Type</a></li>
+							<li><a href="#colors">Colors</a></li>
+							<li><a href="#patterns">Patterns</a></li>
+							<li><a href="#menu">Static Menu?</a></li>
+							<li><a href="#preloader">Preloader?</a></li>
+							<li><a href="#form">Contact Form</a></li>
+							<li><a href="#flickr">Flickr Feed</a></li>
+							<li><a href="#sidebar-right">Right SIdebars</a></li>
+						</ul>
+					</nav>
+				</div>
+				<div class="col-sm-12 col-md-10">
+					<section class="elements-section">
+						<h2 id="update" class="section-title-2">Update Details</h2>
+						<div class="content">
+							<p>As of <strong>version 1.2.3</strong> if you want to have a static menu, add the <code>static-menu</code> class only to the <code>body</code> tag.</p>
+							<p>As of <strong>version 1.1.1</strong> the file structured changed. Now, you'll find the wide and boxed folders instead of just one voyo folder. Choose the preferred layout type and start making changes in that folder.
+							<br>
+							The way you set a layout type hasn't changed. Add or remove the <code>layout-boxed</code> id. I just creaded a new folder (boxed) and added the <code>layout-boxed</code> id to every page.</p>
+						</div>
+					</section>
+					<section class="elements-section">
+						<h2 id="overview" class="section-title-2">Overview</h2>
+						<div class="content">
+							<p>This template is built on Twitter Bootstrap framework and it uses jQuery, a javascript library to handle some of the actions throughout the template, and in order to be able to easily work with the template, you need to know at least the basics of these two frameworks, but it is not necessary. </p>
+							<p>Also, we used some third party plugins in this template like isotope, owl-carousel, flexslider (we will enumerate them later in this documentation ) and there may be some situations where you will need or want to make some changes. e.g. If you want some charts in your site, you'll need to initialize the chart.js plugin, and therefore you have to know how to do that. But, don't worry, we will explain what every plugin does and where you could get more informations about them. So, let's get started.</p>
+						</div>
+					</section>
+					<section class="elements-section">
+						<h2 id="files" class="section-title-2">Files Structure</h2>
+						<div class="content">
+							<p>Once downloaded, unzip the compressed folder to see the structure of the template.  inc folder includes all third party plugins while css, js and php folders includes only files created by me.</p>
+							<p>We strongly advise you not make your customizations in these files, as you may need to replace these files in the future updates. If you want to add something to your site, or if you want to change something (styles or scripts), please put your code in separated files (e.g. user_style.css).</p>
+
+                            <p><strong>Files Structure</strong></p>
+                            <div class="files-structure mb40">
+                            	<ul>
+									<li>css
+										<ul>
+											<ul>
+												<li>colors</li>
+											</ul>
+											<li>color_scheme.css</li>
+											<li>color_scheme.less</li>
+											<li>style.css (main style)</li>
+										</ul>
+									</li>
+									<li>images</li>
+									<li>inc (third party plugins)</li>
+									<li>js
+										<ul>
+											<li>init-charts.js (charts initialization)</li>
+											<li>contact.js (contact script)</li>
+											<li>script.js (main script)</li>
+										</ul>
+									</li>
+									<li>php
+										<ul>
+											<li>contact.php</li>
+										</ul>
+									</li>
+									<li>*.html</li>
+									<li>robots.txt</li>
+									<li>humans.txt</li>
+								</ul>
+                            </div>
+	
+							<p>Below is a short description of assets used in this template.</p>
+							<p><strong>Javascript</strong></p>
+							<ol class="mb20">
+								<li><a href="http://jquery.com/" >jQuery</a> &nbsp; --- &nbsp; Fast, small, and feature-rich JavaScript library. It reduces the amount of code that you must write.</li>
+								<li><a href="http://www.woothemes.com/flexslider/" >Flexslider</a> &nbsp; --- &nbsp;An awesome, fully responsive jQuery slider toolkit. It is used for the main slider from index pages.</li>
+								<li><a href="http://isotope.metafizzy.co/" >Isotope</a> &nbsp; --- &nbsp; It's an exquisite jQuery plugin for magical layouts used to filter and make use of the masonry layout for Blog, Portfolio, Shop Templates. Images Loaded is also included with Isotope. It detects when images have been loaded.</li>
+								<li><a href="https://github.com/jackmoore/zoom" >Zoom</a> &nbsp; --- &nbsp; A plugin to enlarge images on touch, click, or mouseover. It is used for images from shop templates.</li>
+								<li><a href="http://dimsemenov.com/plugins/magnific-popup/" >Magnific-popup</a> &nbsp; --- &nbsp; A responsive lightbox & dialog script with focus on performance and providing best experience for users with any device. It is is used to preview a full version of the images that are cut to fit the page.</li>
+								<li><a href="http://www.owlgraphic.com/owlcarousel/" >Owl-carousel</a> &nbsp; --- &nbsp; Touch enabled jQuery plugin that lets you create beautiful responsive carousel sliders.</li>
+								<li><a href="https://github.com/IonDen/ion.rangeSlider" >rangeSlider</a> &nbsp; --- &nbsp; A jQuery range slider plugin with skin support. Used for shop Templates.</li>
+								<li><a href="https://github.com/wbotelhos/raty" >raty</a> &nbsp; --- &nbsp; A star rating plugin. It is used for shop templates to rate a product.</li>
+								<li><a href="http://sharrre.com/" >sharrre</a> &nbsp; --- &nbsp; A jQuery plugin that allows you to create nice widgets sharing for Facebook, Twitter, Google Plus and more.</li>
+								<li><a href="http://www.chartjs.org/" >chart js</a> &nbsp; --- &nbsp; Easy, object oriented client side graphs for designers and developers.</li>
+								<li><a href="https://github.com/bas2k/jquery.appear/" >Appear</a> &nbsp; --- &nbsp; jQuery plugin to call a function when an element appears. We used it for animations.</li>
+								<li><a href="http://rendro.github.io/countdown/" >countdown</a> &nbsp; --- &nbsp; jQuery plugin that renders countdowns. Used for Coming soon temaplate.</li>
+								<li><a href="https://github.com/mhuggins/jquery-countTo" >countTo</a> &nbsp; --- &nbsp; jQuery plugin that will count up (or down) to a target number at a specified speed, rendered within an HTML DOM element. Used for Stats sections.</li>
+								<li><a href="https://github.com/davist11/jQuery-One-Page-Nav" >onePageNav</a> &nbsp; --- &nbsp; Used for One Page Templates. (Menu)</li>
+								<li><a href="http://jqueryvalidation.org/" >Validate</a> &nbsp; --- &nbsp; It makes simple client-side form validation easy, offering plenty of customization options. Used for contact form.</li>
+								<li><a href="http://imulus.github.io/retinajs/" >vTicker</a> &nbsp; --- &nbsp; Adds scrolling vertical tickers to your site.</li>
+								<li><a href="http://imulus.github.io/retinajs/" >Retina js</a> &nbsp; --- &nbsp; It is an open source script that makes it easy to serve high-resolution images to devices with retina displays</li>
+								<li><a href="http://www.newmediacampaigns.com/blog/a-jquery-flickr-feed-plugin">jFlickrFeed</a> &nbsp; --- &nbsp; This plugin works by pulling a JSON feed from Flickr and applying the data it gets back to a template. Used for flickr images from footer and more. </li>
+								<li><a href="https://github.com/mathiasbynens/jquery-placeholder">placeholder</a> &nbsp; --- &nbsp; Used to fix placeholder on IE9</li>
+							</ol>
+							<p><strong>CSS</strong></p>
+							<ol class="mb20">
+								<li><a href="http://getbootstrap.com/" >Bootstrap</a> &nbsp; --- &nbsp; A sleek, intuitive, and powerful front-end framework for faster and easier web development, </li>
+								<li><a href="http://daneden.github.io/animate.css/" >Animate</a> &nbsp; --- &nbsp; A bunch of cool, fun, and cross-browser animations.</li>
+							</ol>
+							<p><strong>Fonts</strong></p>
+							<ol class="mb20">
+								<li><a href="http://fortawesome.github.io/Font-Awesome/" >Font-Awesome</a> &nbsp; --- &nbsp; Scalable vector icons that can instantly be customized — size, color, drop shadow, etc. CSS Friendly.</li>
+								<li><a href="http://www.google.com/fonts/specimen/Open+Sans" >Open Sans</a> &nbsp; --- &nbsp; Web Font</li>
+								<li><a href="http://www.google.com/fonts/specimen/Raleway" >Raleway</a> &nbsp; --- &nbsp; Web Font</li>
+							</ol>
+                            <p><strong>Icons</strong></p>
+                            <ol class="mb20">
+                                <li><a href="http://www.elegantthemes.com/blog/freebie-of-the-week/beautiful-flat-icons-for-free" >Cricle Icons (elegantthemes)</a> &nbsp; --- &nbsp;  192 flat icons that come in two versions: full color and single color, for a total of 384 variations</li>
+                            </ol>
+                            <p><strong>Patterns</strong></p>
+                            <ol>
+                            	<li><a href="http://subtlepatterns.com/" >Subtle Patterns</a>  &nbsp; --- &nbsp;  Background patterns for boxed layout.</li>
+                            </ol>
+
+						</div>
+					</section>
+					<section class="elements-section">
+						<h2 id="html" class="section-title-2">HTML Structure</h2>
+						<div class="content">
+							<p>This template is based on a responsive layout and uses the boostrap grid system. The general structure is the same throughout the whole template. When you modify or create a page, make sure you have the required files included (plugin dependencies). Below you'll see the general structure for every page.</p>
+							<div class="mb40"></div>
+							<h3 class="box-title">HTML Page Structure</h3>
+							<p>
+<pre class="prettyprint lang-html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en-us"&gt;
+&lt;head&gt;
+
+    &lt;meta charset=&quot;utf-8&quot; &gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+
+    &lt;title&gt;Voyo | Responsive Multipurpose Retina HTML5 Template&lt;/title&gt;
+
+    &lt;meta name=&quot;author&quot; content=&quot;abusinesstheme&quot;&gt;
+    &lt;meta name=&quot;description&quot; content=&quot;Responsive Multipurpose Retina HTML5 Template&quot;&gt;
+	
+
+    &lt;!-- CSS files --&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;assets/inc/bootstrap/css/bootstrap.min.css&quot;&gt;
+
+    ---   more css files   ---
+
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;assets/css/style.css&quot;&gt;
+
+
+    &lt;!-- Favicons --&gt;
+    &lt;link rel=&quot;shortcut icon&quot; href=&quot;assets/images/favicon.ico&quot;&gt;
+    &lt;link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    &lt;link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png"&gt;
+    &lt;link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png"&gt;
+    &lt;link rel="apple-touch-icon" sizes="144x144" href="images/apple-touch-icon-144x144.png"&gt;
+
+
+&lt;/head>
+&lt;body>
+
+
+&lt;!-- Global Wrapper --&gt;
+&lt;div id=&quot;wrapper&quot;&gt;
+
+
+    &lt;header id=&quot;header-wrapper&quot;&gt; ...
+    &lt;/header&gt;  &lt;!-- END Header Wrapper --&gt;
+
+    ---   content   ---
+
+    &lt;footer class=&quot;footer-wrapper&quot;&gt; ...
+    &lt;/footer&gt;  &lt;!-- END Footer Wrapper --&gt;
+
+&lt;/div&gt;   &lt;!-- END Global Wrapper --&gt;
+
+
+    &lt;!-- Javascript files --&gt;
+    &lt;script src=&quot;assets/inc/jquery/jquery-2.1.0.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;assets/inc/bootstrap/js/bootstrap.min.js"&quot;&gt;&lt;/script&gt;
+
+    ---   more javascript files   ---
+
+    &lt;script src=&quot;assets/js/script.js&quot;>&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+							</p>
+							<div class="mb40"></div>
+							<h3 class="box-title">Section Structure </h3>
+							<p>
+<pre class="prettyprint lang-html">
+&lt;section class=&quot;about-section section&quot;&gt;
+    &lt;div class=&quot;container&quot;&gt;
+        &lt;div class=&quot;row&quot;&gt;
+            &lt;div class=&quot;col-sm-12&quot;&gt;
+
+                ---   content   ---
+
+            &lt;/div&gt;
+        &lt;/div&gt; 
+    &lt;/div&gt; &lt;!-- END Container --&gt;
+&lt;/section&gt; &lt;!-- END Services Section --&gt;
+</pre>
+							</p>
+							<div class="mb40"></div>
+                            <h3 class="box-title">Section Structure - Full-width with background </h3>
+                            <p>For a faster development I created a script that let you set a background image to any section through an HTML5 data attribute. So, if you want a background section, you'll have to add a <code>custom-bg</code> class and a <code>data-bg</code> attribute, pointing to your image path. Also, if you want a "parallax" section (image positioned fixed, not really parallax), just add a <code>parallax</code> class. Make sure to choose a proper image (at least 1920x1080) for parallax background. <code>bg-layer</code>  element is optional. See example below.</p>
+                            <p>
+<pre class="prettyprint lang-html">
+&lt;section class=&quot;section custom-bg parallax&quot; data-bg=&quot;assets/images/yourImage.jpg&quot;&gt;
+    &lt;div class=&quot;bg-layer&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;container&quot;&gt;
+        &lt;div class=&quot;row&quot;&gt;
+            &lt;div class=&quot;col-sm-12&quot;&gt;
+
+                ---   content   ---
+
+            &lt;/div&gt;
+        &lt;/div&gt; 
+    &lt;/div&gt; &lt;!-- END Container --&gt;
+&lt;/section&gt; &lt;!-- END Services Section --&gt;
+</pre>
+                            </p>
+                            <div class="mb40"></div>
+                            <h3 class="box-title">Slider</h3>
+                            <p>For this template I chose to use flexslider plugin. I customized it a little, adding support for animations, fixed images etc. If you want a slider with animations, just add an <code>animated</code> class to any element inside the slider and a <code>data-anim</code> attribute where you specify the name of the animation. Also, you could delay the animation, adding a <code>data-delay</code> attribute. The value for this attribute must be a number greater than 0 (it is measured in milliseconds - e.g. 200, 500, 1100 etc). You could choose to link images through <code>data-bg</code> attribute, using the <code>custom-bg</code> class, or you can use the css method. See an example below.</p>
+                            <p>
+<pre class="prettyprint lang-html">
+&lt;section id=&quot;main-slider&quot; class=&quot;flexslider&quot;&gt;
+    &lt;ul class=&quot;slides&quot;&gt;
+        &lt;!-- Slide 1 --&gt;
+        &lt;li class=&quot;custom-bg&quot; data-bg=&quot;assets/images/yourImage.jpg&quot;&gt;
+            &lt;div class=&quot;bg-layer&quot;&gt;&lt;/div&gt;
+            &lt;div class=&quot;flex-content&quot;&gt;
+                &lt;div class=&quot;container&quot;&gt;
+                    &lt;div class=&quot;row&quot;&gt;
+                        &lt;div class=&quot;col-sm-12&quot;&gt;
+                            &lt;div class=&quot;animated&quot; data-anim=&quot;fadeInUp&quot; data-delay=&quot;800&quot;&gt;
+                                ---   content   ---
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt; 
+                &lt;/div&gt; &lt;!-- END Container --&gt;
+            &lt;/div&gt; &lt;!-- END flex content --&gt;
+        &lt;/li&gt; &lt;!-- END Slide 1 --&gt;
+        &lt;!-- Slide 2 --&gt;
+        &lt;li class=&quot;custom-bg&quot; data-bg=&quot;assets/images/yourImage.jpg&quot;&gt;
+            &lt;div class=&quot;bg-layer&quot;&gt;&lt;/div&gt;
+            &lt;div class=&quot;flex-content&quot;&gt;
+                &lt;div class=&quot;container&quot;&gt;
+                    &lt;div class=&quot;row&quot;&gt;
+                        &lt;div class=&quot;col-sm-6&quot;&gt;
+                            &lt;div class=&quot;animated&quot; data-anim=&quot;bounceInRight&quot; data-delay=&quot;200&quot;&gt;
+                                ---   content   ---
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div class=&quot;col-sm-6&quot;&gt;
+                            &lt;div class=&quot;animated&quot; data-anim=&quot;bounceInLeft&quot; data-delay=&quot;500&quot;&gt;
+                                ---   content   ---
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt; 
+                &lt;/div&gt; &lt;!-- END Container --&gt;
+            &lt;/div&gt; &lt;!-- END flex content --&gt;
+        &lt;/li&gt; &lt;!-- END Slide 2 --&gt;
+    &lt;/ul&gt; &lt;!-- END Slides --&gt;
+&lt;/section&gt;
+
+</pre>
+                            </p>
+						</div>
+					</section>
+					<section class="elements-section">
+						<h2 id="css" class="section-title-2">CSS Structure</h2>
+						<div class="content">
+							<p>We have a single css file that handles all the content. It seems to be huge, but we created a table of content that helps you to find, faster and easier, every class name you want. Below, you'll see  the structure of the content. </p>
+							<p>
+								<pre class="prettyprint lang-css">
+/* -------------------------------------------------------------------
+
+Template Name: Voyo One - Responsive HTML5 and CSS3 Website Template 
+Version: 1.0
+Author: abusinesstheme
+Website: http://abusinesstheme.com
+
+    [Table of contents]
+
+    01. General style
+    02. Helper classes
+    03. Megamenu
+    04. Headers
+    05. Sliders
+    06. Page Header
+    07. Sections 
+    08. Portfolio 
+    09. Blog
+    10. Shop
+    11. Pages
+    12. Sidebar 
+    13. Elements
+    14. Footers
+    15. Social Icons
+
+    [Colors]
+
+    # main color --> #22aba6 = rgb(34,171,166)
+    # background --> #fcfcfc
+    # content    --> #777777
+    # titles 	 --> #444 , #555 , #666
+
+    [Typography]
+
+    # content    --> Open Sans
+    # titles 	 --> Raleway
+
+    Notes: I used Raleway for some main paragrpahs too;
+
+-------------------------------------------------------------------- */
+
+
+/* *********************    General Style	********************* */
+
+    ---  styles  ---
+
+
+/* *********************    Helper Classes	********************* */
+   
+   ---  and so on  ---
+								</pre>
+							</p>
+						</div>
+					</section>
+					<section class="elements-section">
+						<h2 id="js" class="section-title-2">Javascript Structure</h2>
+						<div class="content">
+							<p>The javascript structure is almost the same like the css tructure. We have a single file that handles all the content. Below, you'll see  the structure of the content.</p>
+							<p>
+								<pre class="prettyprint lang-js">
+/* -----------------------------------------------------------------
+
+Template Name: Voyo One - Responsive HTML5 and CSS3 Website Template 
+Version: 1.0
+Author: abusinesstheme
+Website: http://abusinesstheme.com
+
+    [Content Structure]
+
+    01. Helper Functions
+    02. Megamenu
+    03. Fixed Header
+    04. Back to Top
+    05. Plugins configurations
+    06. Bootstrap configurations
+    07. Website Enhancement and bug fixes
+    08. Animations
+    09. Carousels configurations (owl-carousel)
+    10. Isotope configurations 
+    11. Slider configarations (flexslider)
+    12. Ajax contact form
+    13. Charts initialization
+    14. Preloader
+
+------------------------------------------------------------------- */
+
+
+
+(function($){
+    "use strict";
+
+/* *********************    Helper Functions	********************* */
+
+    ---    content    ---
+
+
+
+/* *********************    Megamenu	********************* */
+
+    ---    and so on    ---
+
+
+})(jQuery);
+								</pre>
+							</p>
+						</div>
+					</section>
+					<section class="elements-section">
+						<h2 id="elements" class="section-title-2">Elements</h2>
+						<div class="content">
+							<p>There are tons of elements where you can choose from! Whether you want alerts, animations or maps, you can create the page yourself by including any information you want.</p> 
+                            <p><strong>How to?</strong></p>
+                            <p>You know how copy-paste work, right? For example, if you want a button, you will have to open the elements_buttons.html page and look for the desired button. It is better if you use a web developer tool ( Firebug or Chrome Developer Tools ) to easily locate an element.</p>
+							<p><span class="main-text">Important!</span> When you copy an element, or in any other situation, please make sure not to have a <code>container</code> class inside another <code>container</code> class. It's better if you know the <strong>boostrap grid stystem</strong>, and if you do not, I would recommend you to take a quick look at it.</p>
+							<div class="mb40"></div>
+							<p>Animations: How to?</p>
+							<p><pre class="prettyprint lang-html">
+&lt;div class=&quot;animated&quot; data-anim=&quot;bounceInLeft&quot;&gt; content &lt;/div&gt;
+&lt;div class=&quot;animated&quot; data-anim=&quot;bounceInRight&quot;&gt; content &lt;/div&gt;
+</pre></p>
+						</div>
+					</section>
+					<section class="elements-section">
+						<h2 id="sections" class="section-title-2">Sections</h2>
+						<div class="content">
+							<p>This template allows you to create your own custom page with the help of sections. For example, if you like index_2.html page as a whole but you don't like, let's say, services section, you could easily copy a favourite section ( or why not, build it with the help of elements) and replace the old section. You can choose what sections you like and built your own custom page. It's very easy.</p>
+                            <p>When you copy a section from one page and paste it to another page, please make sure you include its plugin dependencies, if it's the case. Below is an example of some sections.</p>
+							<p>
+<pre class="prettyprint lang-html">
+&lt;section class=&quot;section about-section&quot;&gt; ...
+&lt;/section&gt;
+
+&lt;section class=&quot;section-3 custom-bg parallax&quot; data-bg="path/to/image.jpg"&gt; ...
+&lt;/section&gt;
+
+&lt;section class=&quot;section-8 section-gray&quot;&gt; ...
+&lt;/section&gt;
+</pre>
+							</p>
+
+						</div>
+					</section>
+					<section class="elements-section">
+						<h2 id="layout" class="section-title-2">Layout Type</h2>
+						<div class="content">
+							<p>This template allows you to choose between boxed and full width layout. The default layout is full width. So, if you want boxed layout, just add the <code>layout-boxed</code> id to the body tag. Bear in mind that you need to do this task for every page! See an example below:</p>
+							<pre class="prettyprint lang-html">
+&lt;body id=&quot;layout-boxed&quot;&gt;
+   
+    -- content --
+
+&lt;/body&gt;
+</pre>
+						</div>
+					</section>
+					<section class="elements-section">
+						<h2 id="colors" class="section-title-2">Colors</h2>
+						<div class="content">
+							<p>If you want a different color than the default one, you just need to add a link to the css file after that main style. Bear in mind that you need to do this task for every page! Replace color-blue with the favourite color style from assets/css/colors/ folder.</p>
+							<p>
+<pre class="prettyprint lang-html">
+&lt;head&gt;
+    
+    -- some styles --
+
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;css/style.css&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;css/colors/blue.css&quot;&gt;  -- here --
+
+&lt;/head&gt;
+</pre>
+							</p>
+							<p>OR, you can create your own color by changing one variable in the css/color_scheme.less file and then compiling this less file into a css file (I will explain later how to do that)</p>
+							<p>
+<pre class="prettyprint lang-less">
+// Change #22aba6 with your favorite color
+@color: #22aba6;
+</pre>
+							</p>
+							<p>Let's say your favourite color is rgb(52,119,220). Open color_scheme.less file and change @color to rgb(52,119,220).</p>
+							<p>
+<pre class="prettyprint lang-less">
+// Change #22aba6 with your favorite color
+@color: rgb(52,119,220);
+</pre>
+							</p>
+							<p>Now you have to go to <a href="http://less2css.org/" >less2css.org</a> and copy all the code from this less file in the less section ( left ), then copy all the code from css section ( right ) and paste it to color_scheme.css file and save it. Now you have to link color_scheme.css to your pages.  Bear in mind that you need to do this task for every page!</p>
+							<p>
+<pre class="prettyprint lang-html">
+&lt;head&gt;
+    
+    -- some styles --
+
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;css/style.css&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;css/color_scheme.css&quot;&gt;  -- here --
+
+&lt;/head&gt;
+</pre>
+							</p>
+							<p>That's it!</p>
+						</div>
+					</section>
+					<section class="elements-section">
+						<h2 id="patterns" class="section-title-2">Patterns</h2>
+						<div class="content">
+							<p>If you chose to have boxed layout, you can set a background pattern ( image or color ) to the body. So, in order to do that, you have to add a background property to the body (As I said at the begining, please create a new css file and put your new styles there). You will find 8 patterns in images/patterns. See an example below:</p>
+							<p>
+<pre class="prettyprint lang-css">
+/* Background Pattern (Or image) */
+
+body {
+    background: url('../images/patterns/1.png');
+}
+</pre>
+<pre class="prettyprint lang-css">
+/* Background color */
+
+body {
+    background: rgb(34,171,166);
+}
+</pre>
+							</p>
+						</div>
+					</section>
+					<section class="elements-section">
+						<h2 id="menu" class="section-title-2">Static Menu?</h2>
+						<div class="content">
+							<p>This template allows you to position your menu to top (fixed) or you can change it to be static. The default behavior for this template is fixed menu, but if you want static menu all you need to do is to add <code>static-menu</code> class to the body tag.</p>
+							<p> For short:
+<pre class="prettyprint lang-html">
+&lt;body class=&quot;static-menu&quot;&gt;
+</pre>
+							</p>
+						</div>
+					</section>
+					<section class="elements-section">
+						<h2 id="preloader" class="section-title-2">Preloader?</h2>
+						<div class="content">
+							<p>If you want a preloader before pages to load, you have to add some lines of code. Bear in mind that you need to do this task for every page! See page_preloader.html for an example.</p>
+							<p>
+<pre class="prettyprint lang-html">
+&lt;!-- Add this to your CSS --&gt; 
+body {
+    overflow:hidden;
+}
+
+&lt;!-- Add these lines to every page --&gt;
+&lt;div id=&quot;preloader&quot;&gt;
+    &lt;div id=&quot;status&quot;>&nbsp;&lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- END Preloader --&gt;
+</pre>
+							</p>
+						</div>
+					</section>
+					<section class="elements-section">
+						<h2 id="form" class="section-title-2">Contact Form</h2>
+						<div class="content">
+							<p>This template contains a fully working contact form. All you need to do is to replace one line of code. So, in order to receive messages you need to edit contact.php file from php folder and type in your own email address. You could change the subject as well.
+							</p>
+							<p>
+<pre class="prettyprint lang-php">
+// Enter your email address below.
+// Example $to_address = "bruce.wayne@yourdomain.com";
+$to_address = &quot;you_email_address@domain.com&quot;; 
+
+--- more content ---
+
+// Also, you can change the value of the $subject variable to whatever you like
+$subject = &quot;$name has contacted you via your Website&quot;;
+</pre>
+							</p>
+							<div class="alert alert-danger br2"> <strong>Warning!</strong> Please ensure that PHP mail() function is correctly configured on your server.</div>
+						</div>
+					</section>
+					<section class="elements-section">
+						<h2 id="flickr" class="section-title-2">Flickr Feed</h2>
+						<div class="content">
+							<p>If you want to use flickr feed widget, you'll have to change one line of code. Go to script.js from js folder and in "Plugin configurations" section you'll find the flickr feed script. Change the id property to your flickr ID. See an example below.</p>
+							<p>
+<pre class="prettyprint lang-js">
+var flickrData = {
+    limit: 6,
+    qstrings: {
+        // You have to put your flickr ID here
+        id: '52617155@N08'
+    },
+    itemTemplate: '&lt;li&gt;&lt;a href=&quot;{{link}}&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;{{image_s}}&quot; alt=&quot;{{title}}&quot; /&gt;&lt;/a&gt;&lt;/li&gt;'
+};
+</pre>
+							</p>
+						</div>
+					</section>
+					<section class="elements-section">
+						<h2 id="sidebar-right" class="section-title-2">Right Sidebars</h2>
+						<div class="content">
+							<p>As you may noticed, this template has sidebars only on the left side, but you could easily move it to the right by removing a few classes. See an example below.</p>
+							<p>Sidebar left</p>
+							<p>
+<pre class="prettyprint lang-html">
+&lt;section class="section-4"&gt;
+    &lt;div class="container"&gt;
+        &lt;div class="row"&gt;
+            &lt;div class="col-sm-7 col-md-9 col-md-push-3 col-sm-push-5 space-left"&gt;
+                &lt;div class="main-content"&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="col-sm-5 col-md-3 col-md-pull-9 col-sm-pull-7"&gt;
+                &lt;aside class="sidebar"&gt;
+                &lt;/aside&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/section>&gt;
+</pre>
+							</p>
+							<div class="mb40"></div>
+							<p>Sidebar right</p>
+							<p>
+<pre class="prettyprint lang-html">
+&lt;section class="section-4"&gt;
+    &lt;div class="container"&gt;
+        &lt;div class="row"&gt;
+            &lt;div class="col-sm-7 col-md-9 space-right"&gt;
+                &lt;div class="main-content"&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="col-sm-5 col-md-3"&gt;
+                &lt;aside class="sidebar"&gt;
+                &lt;/aside&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/section>&gt;
+</pre>
+							</p>
+							<div class="mb40"></div>
+							<p>For short, you have to replace the <code>space-left</code> class with <code>space-right</code> class, and then to remove all the classes with <code>col-*-push-*</code>, <code>col-*-pull-*</code>. See page_sidebars.html for an example.</p>
+						</div>
+					</section>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Footer -->
+	<footer class="footer-wrapper">
+		<div class="main-footer">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="footer-widget-full-width">
+							 <p>Once again, thank you so much for purchasing my template. As I said at the beginning, I'd be glad to help you if you have any questions relating to this template. No guarantees, but I'll do my best to assist. If you have a more general question relating to the themes on ThemeForest, you might consider visiting the forums and asking your question in the "Item Discussion" section. Thank you, and <strong> don't forget to rate my product</strong> if yo like it. 
+							 </p>
+						</div> <!-- END Footer Full Widget -->
+					</div>
+				</div>
+			</div>
+		</div> <!-- END Main Footer -->
+		<div class="sub-footer">
+			<div class="container">
+				<p class="text-center">&copy; 2014 abusinesstheme. All rights reserved.</p>
+			</div>
+		</div> <!-- END Sub footer -->		
+	</footer> <!-- END Footer -->
+	
+</div> <!-- END Global Wrapper -->
+
+
+	<script src="assets/js/jquery-2.1.0.min.js"></script>
+	<script src="assets/js/bootstrap.min.js"></script>
+	<script src="assets/js/jquery.nav.js"></script>
+	<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?lang=css&skin=sunburst"></script>
+
+
+	<script>
+		(function($) {
+			"use strict";
+
+			// OnePage plugin configurations 
+			if (($().onePageNav) && $("#one-page-navigation").length) {
+				
+				$("#one-page-navigation").onePageNav();
+			}
+
+
+			// Add target _blank to links
+			$("a[href^='http']").attr("target","_blank");
+
+			// SIdebar affix
+			if($('#sidebar-affix').length) {
+
+				setTimeout(function () {
+			        $('.sidebar-affix').affix({
+				        offset: {
+				            top: function () {
+				                 return (this.top = $('.page-header').outerHeight(true));
+				            },
+				            bottom: function () {
+				                return (this.bottom = $('.footer-wrapper').outerHeight(true));
+				            }
+				        }
+			        });
+
+			    }, 100)
+
+			} // END if
+
+
+		})(jQuery);
+	</script>
+
+</body>
+</html>

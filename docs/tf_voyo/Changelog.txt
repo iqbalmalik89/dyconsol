@@ -1,0 +1,84 @@
+
+======================================
+======================================
+======================================
+
+
+
+========		v1.2.4 		[18.03.2015]
+========================================
+
+- changed some css code in the main files
+
+
+
+========		v1.2.3 		[12.12.2014]
+========================================
+
+- improved the sticky menu, using sticky.js now
+
+
+
+========		v1.2.2 		[10.12.2014]
+========================================
+
+- changed some js code
+
+
+========		v1.2.1 		[01.12.2014]
+========================================
+
+- fixed the bug with fixed-menu and rev slider
+
+
+========		v1.2.0 		[01.12.2014]
+========================================
+
+- added 3 more home pages ( index_2.html, index_3.html, index_4.html)
+- simplified the layout of the others home pages
+- now, every page has a preloader
+
+
+
+========		v1.1.2 		[30.11.2014]
+========================================
+
+- added boxed and wide folders
+- updated documentation
+- changed a few css classes
+- fixed a bug with portfolio filtering (isotope) on IE
+
+
+
+========		v1.1.1 		[27.11.2014]
+========================================
+
+- added flexslider
+- added static-menu class to the pages with revolution slider (bug)
+	- will be fixed soon
+
+
+
+
+========		v1.1.0 		[26.11.2014]
+========================================
+
+- added feature_slide_boxed.html
+- added feature_slide_fullwidth.html
+- added feature_slide_fullscreen.html
+
+- modified some details in documentation
+
+
+
+
+( Initial Release )
+
+========		v1.0.0 		[24.11.2014]
+========================================
+
+
+
+
+
+

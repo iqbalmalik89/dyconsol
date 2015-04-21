@@ -121,6 +121,9 @@ function response($code, $dataAry)
     });
 
 
+    $app->notFound(function () use ($app) {
+        $app->render('404.html.twig', array('title' => 'Not Found'));
+    });
 
 
 
@@ -159,5 +162,10 @@ $app->group('/api', function () use ($app) {
     });    
 
 });
+
+
+
+
+
 
 $app->run();

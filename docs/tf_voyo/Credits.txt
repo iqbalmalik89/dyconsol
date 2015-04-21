@@ -1,0 +1,118 @@
+
+
+=============== JAVASCRIPT ===============
+==========================================
+
+
+jQuery        
+	http://jquery.com/  
+
+Flexslider      
+	http://www.woothemes.com/flexslider/     
+
+Isotope         
+	http://isotope.metafizzy.co/       
+
+Zoom       
+	https://github.com/jackmoore/zoom      
+
+Magnific-popup          
+	http://dimsemenov.com/plugins/magnific-popup/     
+
+Owl-carousel           
+	http://www.owlgraphic.com/owlcarousel/      
+
+rangeSlider          
+	https://github.com/IonDen/ion.rangeSlider    
+
+raty         
+	https://github.com/wbotelhos/raty     
+
+sharrre       
+	http://sharrre.com/      
+
+chart js          
+	http://www.chartjs.org/    
+
+Appear            
+	https://github.com/bas2k/jquery.appear/    
+
+countdown            
+	 http://rendro.github.io/countdown/    
+
+onePageNav           
+	https://github.com/davist11/jQuery-One-Page-Nav
+
+scrollTo         
+	https://github.com/flesler/jquery.scrollTo   
+
+Validate          
+	http://jqueryvalidation.org/    
+
+vTicker         
+	http://richhollis.github.io/vticker/   
+
+Retina js          
+	http://imulus.github.io/retinajs/  
+
+jFlickrFeed          
+	http://www.newmediacampaigns.com/blog/a-jquery-flickr-feed-plugin  
+
+placeholder            
+	https://github.com/mathiasbynens/jquery-placeholder 
+
+sticky js
+	https://github.com/garand/sticky
+
+
+
+
+
+=============== CSS ===============
+===================================
+
+
+Bootstrap
+    http://getbootstrap.com/   
+
+Animate css
+    http://daneden.github.io/animate.css/   
+
+
+
+
+=============== FONTS ===============
+=====================================
+
+
+Font-Awesome
+    http://fortawesome.github.io/Font-Awesome/ 
+
+Open Sans 
+    http://www.google.com/fonts/specimen/Open+Sans 
+
+Raleway
+    http://www.google.com/fonts/specimen/Raleway  
+
+
+
+
+
+
+=============== ICONS ===============
+=====================================
+
+
+elegantthemes Circle Icons 
+    http://www.elegantthemes.com/blog/freebie-of-the-week/beautiful-flat-icons-for-free 
+
+
+
+
+
+=============== PATTERNS ===============
+========================================
+
+
+Subtle Patterns  
+    http://subtlepatterns.com/
