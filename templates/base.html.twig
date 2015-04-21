@@ -1,11 +1,44 @@
 <!DOCTYPE html>
+<html lang="en-us">
 <html>
     <head>
         {% block head %}
+            <meta charset="utf-8" >
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
             <title>{% block title %}{% endblock %}</title>
+        
+            <!-- Change the author and description -->
+            <meta name="author" content="dycosnsol">
+            <meta name="description" content="{% block meta_desc %}{% endblock %}">
+            
+            <!-- CSS files -->
+            <link rel="stylesheet" href="asset/inc/bootstrap/css/bootstrap.min.css">
+            <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,400italic,600,700|Raleway:300,400,500,600'>
+            <link rel="stylesheet" href="asset/inc/font-awesome/css/font-awesome.min.css">
+            <link rel="stylesheet" href="asset/inc/animate.css">
+            
+
+
+            <!-- Main Stylesheets -->
+            <link rel="stylesheet" href="asset/css/style.css">
+            
+
+
+            <!-- Favicons -->
+            <link rel="shortcut icon" href="asset/images/favicon.ico">
+            <link rel="apple-touch-icon" href="asset/images/apple-touch-icon.png">
+            <link rel="apple-touch-icon" sizes="72x72" href="asset/images/apple-touch-icon-72x72.png">
+            <link rel="apple-touch-icon" sizes="114x114" href="asset/images/apple-touch-icon-114x114.png">
+            <link rel="apple-touch-icon" sizes="144x144" href="asset/images/apple-touch-icon-144x144.png">
+
         {% endblock %}
     </head>
-    <body>
+    <body class="header-top">
+
+        <!-- Global Wrapper -->
+        <div id="wrapper" class="full-height">
+
         {% block nav %}
 			{{ include('partials/nav.html.twig') }}
         {% endblock %}
@@ -19,6 +52,22 @@
         {% block footer %}
 			{{ include('partials/footer.html.twig') }}
         {% endblock %}
+
+        </div> <!-- END Global Wrapper -->
+
+
+
+
+
+        <!-- Javascript files -->
+        <script src="asset/inc/jquery/jquery-2.1.0.min.js"></script>
+        <script src="asset/inc/bootstrap/js/bootstrap.min.js"></script>
+        <script src="asset/inc/jquery.appear.js"></script>
+        <script src="asset/inc/retina.min.js"></script>
+        <script src="asset/inc/jflickrfeed.min.js"></script>
+
+        <!-- Main javascript file -->
+        <script src="asset/js/script.js"></script>
 
     </body>
 </html>
