@@ -9,9 +9,12 @@ if(!$_POST) exit();
 $to_address = "your_email_address@domain.com"; 
 
 
-$name = $_POST['name'];
-$email = $_POST['email'];
-$comment = $_POST['message'];
+$name 				= $_POST['name'];
+$email 				= $_POST['email'];
+$number				= $_POST['number'];
+$comment 			= $_POST['desc'];
+$country 			= $_POST['country'];
+$security_question	= $_POST['security_question'];
 
 
 // Also, you can change the value of the $subject variable to whatever you like
@@ -42,6 +45,7 @@ if ( mail($to_address, $subject, $message, $headers) ) {
 	$result = array ('response'=>'error');
 }
 
+echo 'here';
 echo json_encode($result);
 
 
