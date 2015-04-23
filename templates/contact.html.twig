@@ -69,7 +69,7 @@
 					<div class="tab-content">
 						<div class="tab-pane fade in active" id="tab-contact">
 							<!-- Working contact form -->
-							<form class="working-contact-form form" method="post" action="php/contact.php">
+							<form class="working-contact-form form" method="post" action="php/contact.php" onsubmit="return false;">
 								<!-- Success and error Alerts -->
 								<div class="alert alert-success hidden br0" id="contact-success">
 									<span class="glyphicon glyphicon-ok "></span> &nbsp;
@@ -84,27 +84,27 @@
 								<div>
 									<div class="form-group">
 										<div class="form-icon icon-user">
-					 						<input name="name" id="name" type="text" required class="form-control" placeholder="Name">
+					 						<input name="name" id="name" type="text" class="form-control" placeholder="Name">
 					 					</div>
 									</div>
 									<div class="form-group">
 										<div class="form-icon icon-email">
-					 						<input name="email" id="email" type="email" required class="form-control" placeholder="Email">
+					 						<input name="email" id="email" type="text" class="form-control" placeholder="Email">
 					 					</div>
 									</div>
 									<div class="form-group">
 										<div class="form-icon icon-mobile">
-					 						<input name="phone_number" id="phone_number" type="number" required class="form-control" placeholder="Phone Number">
+					 						<input name="phone_number" id="phone_number" type="text" class="form-control" placeholder="Phone Number">
 					 					</div>
 									</div>
 									<div class="form-group">
 										<div class="form-icon icon-message">
-					 						<textarea name="desc" id="desc" cols="30" rows="8" required class="form-control" placeholder="Description"></textarea>
+					 						<textarea name="desc" id="desc" cols="30" rows="8" class="form-control" placeholder="Description"></textarea>
 					 					</div>
 									</div>
 									<div class="form-group">
 										<div class="form-icon icon-message">
-					 						<select id="country" cols="30" rows="8" required class="form-control" >
+					 						<select id="country" cols="30" rows="8" class="form-control" >
 					 							<option value = "0">Country</option>
 					 								<option value="AF">Afghanistan</option>
 													<option value="AX">Åland Islands</option>
@@ -361,10 +361,10 @@
 									</div>
 									<div class="form-group">
 										<div class="form-icon icon-mobile">
-					 						<input name="security" id="security_question" type="number" required class="form-control" placeholder="Security 2+1=">
+					 						<input name="security" id="security_question" type="text" class="form-control" placeholder="Security 2+1=">
 					 					</div>
 									</div>
-							 		<button onclick="contactUs();">Submit</button>
+							 		<input type="submit" onclick="contactUs();" value="Submit">
 						 		</div> <!-- END Form Fields -->
 							</form>
 					  	</div>

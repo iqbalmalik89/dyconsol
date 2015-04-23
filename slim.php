@@ -46,17 +46,7 @@ function response($code, $dataAry)
 
 
 
-/*
-* JSON middleware
-* It Always make sure, response is in the form of JSON
-* We also initiate database connection here
-*/
 
-//$app->add(new JsonMiddleware('/api'));
-
-/*
-
-*/
 	$jsonParams = array();
 	$formParams = $app->request->params();
     $data = $app->request->getBody();
@@ -141,6 +131,13 @@ function response($code, $dataAry)
 
 
 
+/*
+* JSON middleware
+* It Always make sure, response is in the form of JSON
+* We also initiate database connection here
+*/
+
+$app->add(new JsonMiddleware('/api'));
 
 
 /*
