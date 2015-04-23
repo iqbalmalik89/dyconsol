@@ -162,7 +162,21 @@ $app->group('/api', function () use ($app) {
         $new = new LocationRepo();
         $code = $new->getStates($app->requestdata);
         response($code['code'], array('data' => $code['data']));
+    }); 
+
+     $app->get('/contactquery', function() use ($app){
+
+        $new = new ContactQueryRepo();
+        $code = $new->getContactQueries($app->requestdata);
+        response($code['code'], array('data' => $code['data']));
     });    
+
+     $app->post('/contactquery', function() use ($app){
+
+        $new = new ContactQueryRepo();
+        $code = $new->addContactQuery($app->requestdata);
+        response($code, array());
+    }); 
 
 });
 

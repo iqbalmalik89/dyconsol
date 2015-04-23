@@ -1195,12 +1195,20 @@ function contactUs()
 	var country 			= $('#country').val();
 	var security_question 	= $('#security_question').val();
 
-	$.ajax({
-		  method: "POST",
-		  url: "asset/php/contact.php",
-		  //data: { name: "John", location: "Boston" }
-		})
-		   .done(function( msg ) {
-		     alert( "Data Saved: " + msg );
-		  });
+	if(security_question == '3')
+	{
+		$.ajax({
+			  method: "POST",
+			  url: "api/contactquery",
+			  data: { name: name, email: email, number: number, desc: desc, country: country }
+			})
+			   .done(function( msg ) {
+			     alert( "Data Saved: " + msg );
+			  });
+	}
+
+	else
+	{
+		alert('error');
+	}
 }
