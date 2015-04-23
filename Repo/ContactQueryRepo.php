@@ -53,7 +53,7 @@ class ContactQueryRepo{
 			$country 			= $request['country'];
 
 
-			$values = array('name' => $name,'email' => $email,'number' => $number ,	'desc' => $desc, 'country' => $country , 'date_created' => date("Y-m-d H:i:s"));
+			$values = array('name' => $name,'email' => $email,'`number`' => $number ,	'`desc`' => $desc, 'country' => $country , 'date_created' => date("Y-m-d H:i:s"));
 			$query = $GLOBALS['con']->insertInto('contact_query', $values)->execute();
 
 			// Enter your email address below.
