@@ -5,12 +5,17 @@ class JsonMiddleware extends \Slim\Middleware
 
     public function call()
     {
+        $currentRoute = $this->app->request()->getPathInfo();
 
-        // Force response headers to JSON
-        $this->app->response->headers->set(
-            'Content-Type',
-            'application/json'
-        );
+        if(strpos($currentRoute, '/api') )
+        {
+            // Force response headers to JSON
+            $this->app->response->headers->set(
+                'Content-Type',
+                'application/json'
+            );
+
+        }
          
         $method = strtolower($this->app->request->getMethod());
         $mediaType = $this->app->request->getMediaType();
