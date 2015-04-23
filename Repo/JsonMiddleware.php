@@ -44,7 +44,7 @@ class JsonMiddleware extends \Slim\Middleware
     {
         if($_SERVER['HTTP_HOST'] == 'localhost')
         {
-            $database = 'businessapp';
+            $database = 'dyconsol';
             $user = 'root';
             $password = '';
         }
@@ -58,7 +58,7 @@ class JsonMiddleware extends \Slim\Middleware
         $GLOBALS['pdo'] = new PDO("mysql:dbname=". $database, $user, $password);
         $GLOBALS['con'] = new FluentPDO($GLOBALS['pdo']);
         $GLOBALS['abslolute_path'] = 'http://www.tamildirectoryapp.com/beta/admin/login.php';        
-        //$GLOBALS['con']->debug = true;
+        $GLOBALS['con']->debug = true;
     }
 
 
