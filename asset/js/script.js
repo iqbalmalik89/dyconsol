@@ -904,120 +904,120 @@ Website: http://abusinesstheme.com
 /* *********************	Contact Form	********************* */
 
 
-	if ($('.working-contact-form').length ) {
+	// if ($('.working-contact-form').length ) {
 
-		var form = {
+	// 	var form = {
 
-			init: false,
+	// 		init: false,
 
-			initialize: function() {
+	// 		initialize: function() {
 
-				// if form is already initialized, skip 
-				if (this.init) { 
-					return; 
-				} 
-				this.init = true;
+	// 			// if form is already initialized, skip 
+	// 			if (this.init) { 
+	// 				return; 
+	// 			} 
+	// 			this.init = true;
 
 
-				var $form = $(".working-contact-form");
+	// 			var $form = $(".working-contact-form");
 			
-				$form.validate({
-					submitHandler: function(form) {
+	// 			$form.validate({
+	// 				submitHandler: function(form) {
 
-						// Loading Button
-						var btn = $(this.submitButton);
-						btn.button("loading");
+	// 					// Loading Button
+	// 					var btn = $(this.submitButton);
+	// 					btn.button("loading");
 
-						// Ajax Submit
-						$.ajax({
-							type: "POST",
-							url: $form.attr("action"),
-							data: {
-								"name": $form.find("#name").val(),
-								"email": $form.find("#email").val(),
-								"message": $form.find("#message").val()
-							},
-							dataType: "json",
-							success: function(data) {
+	// 					// Ajax Submit
+	// 					$.ajax({
+	// 						type: "POST",
+	// 						url: $form.attr("action"),
+	// 						data: {
+	// 							"name": $form.find("#name").val(),
+	// 							"email": $form.find("#email").val(),
+	// 							"message": $form.find("#message").val()
+	// 						},
+	// 						dataType: "json",
+	// 						success: function(data) {
 
-								var $success = $form.find("#contact-success"),
-									$error = $form.find("#contact-error"); 
+	// 							var $success = $form.find("#contact-success"),
+	// 								$error = $form.find("#contact-error"); 
 
-								if (data.response == "success") {
+	// 							if (data.response == "success") {
 
-									$success.removeClass("hidden");
-									$error.addClass("hidden");
+	// 								$success.removeClass("hidden");
+	// 								$error.addClass("hidden");
 
-									// Reset Form
-									$form.find(".form-control")
-										.val("")
-										.blur()
-										.parent()
-										.removeClass("has-success")
-										.removeClass("has-error")
-										.find("label.error")
-										.remove();
-
-
-								} else {
-
-									$error.removeClass("hidden");
-									$success.addClass("hidden");
-								}
-							},
-							complete: function () {
-								btn.button("reset");
-							}
-						});
-					},
-					rules: {
-						name: {
-							required: true
-						},
-						email: {
-							required: true,
-							email: true
-						},
-						message: {
-							required: true
-						}
-					},
-					messages: {
-						name: {
-							required:"<span class='form-message-error'>Please enter your name!</span>"
-						},
-						email: {
-							required:"<span class='form-message-error'>Please enter your email address!</span>",
-							email:"<span class='form-message-error'>Please enter a valid email address!</span>"
-						},
-						message: {
-							required: "<span class='form-message-error'>Please enter a message!</span>"
-						}
-					},
-					highlight: function (element) {
-						$(element)
-							.parent()
-							.removeClass("has-success")
-							.addClass("has-error");
-					},
-					success: function (element) {
-						$(element)
-							.parent()
-							.removeClass("has-error")
-							.addClass("has-success")
-							.find("label.error")
-							.remove();
-					}
-				});
+	// 								// Reset Form
+	// 								$form.find(".form-control")
+	// 									.val("")
+	// 									.blur()
+	// 									.parent()
+	// 									.removeClass("has-success")
+	// 									.removeClass("has-error")
+	// 									.find("label.error")
+	// 									.remove();
 
 
-			} // END initialize
+	// 							} else {
 
-		}; // END form object
+	// 								$error.removeClass("hidden");
+	// 								$success.addClass("hidden");
+	// 							}
+	// 						},
+	// 						complete: function () {
+	// 							btn.button("reset");
+	// 						}
+	// 					});
+	// 				},
+	// 				rules: {
+	// 					name: {
+	// 						required: true
+	// 					},
+	// 					email: {
+	// 						required: true,
+	// 						email: true
+	// 					},
+	// 					message: {
+	// 						required: true
+	// 					}
+	// 				},
+	// 				messages: {
+	// 					name: {
+	// 						required:"<span class='form-message-error'>Please enter your name!</span>"
+	// 					},
+	// 					email: {
+	// 						required:"<span class='form-message-error'>Please enter your email address!</span>",
+	// 						email:"<span class='form-message-error'>Please enter a valid email address!</span>"
+	// 					},
+	// 					message: {
+	// 						required: "<span class='form-message-error'>Please enter a message!</span>"
+	// 					}
+	// 				},
+	// 				highlight: function (element) {
+	// 					$(element)
+	// 						.parent()
+	// 						.removeClass("has-success")
+	// 						.addClass("has-error");
+	// 				},
+	// 				success: function (element) {
+	// 					$(element)
+	// 						.parent()
+	// 						.removeClass("has-error")
+	// 						.addClass("has-success")
+	// 						.find("label.error")
+	// 						.remove();
+	// 				}
+	// 			});
 
-		form.initialize();
 
-	}
+	// 		} // END initialize
+
+	// 	}; // END form object
+
+	// 	form.initialize();
+
+	// }
 
 
 
@@ -1181,3 +1181,26 @@ Website: http://abusinesstheme.com
 
 })(jQuery);
 /* END Document ready */
+
+
+/* ****************** Contact Form Function (dyconsol) ********************** */
+
+function contactUs()
+{
+
+	var name 				= $('#name').val();
+	var email 				= $('#email').val();
+	var number 				= $('#phone_number').val();
+	var desc 				= $('#desc').val();
+	var country 			= $('#country').val();
+	var security_question 	= $('#security_question').val();
+
+	$.ajax({
+		  method: "POST",
+		  url: "asset/php/contact.php",
+		  //data: { name: "John", location: "Boston" }
+		})
+		   .done(function( msg ) {
+		     alert( "Data Saved: " + msg );
+		  });
+}
