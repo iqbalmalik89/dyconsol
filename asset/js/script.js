@@ -1194,14 +1194,14 @@ function contactUs()
 {
 	$('div').removeClass('has-error');	
 	var Regex 				= /^[A-Za-z0-9]+([_\.-][A-Za-z0-9]+)*@[A-Za-z0-9]+([_\.-][A-Za-z0-9]+)*\.([A-Za-z]){2,4}$/i;
-	var name 				= $('#name').val();
-	var email 				= $('#email').val();
-	var number 				= $('#phone_number').val();
-	var desc 				= $('#desc').val();
-	var country 			= $('#country').val();
-	var security_question 	= $('#security_question').val();
+	var name 				= $.trim(('#name').val());
+	var email 				= $.trim(('#email').val());
+	var number 				= $.trim(('#phone_number').val());
+	var desc 				= $.trim(('#desc').val());
+	var country 			= $.trim(('#country').val());
+	var security_question 	= $.trim(('#security_question').val());
 	var check 				= Regex.test(email);
-	var validationCheck = true;
+	var validationCheck 	= true;
 
 	if(name == "")
 	{
@@ -1230,12 +1230,6 @@ function contactUs()
 	{
 		$('#desc').parent().addClass('has-error');
 		validationCheck = false;		
-	}
-	
-	if(country == "0")
-	{
-		$('#country').parent().addClass('has-error');
-		validationCheck = false;
 	}
 	
 	if(security_question == "" || security_question  != '3')
@@ -1272,23 +1266,42 @@ function contactUs()
 /************* Subcribe function ****************/
 function subscribe()
 {
-	var subscriber_email = $('#subscriber_email').val();
+	$('div').removeClass('has-error');	
 
-	$.ajax({
-			  method: "POST",
-			  url: "api/subscriber",
-			  data: { 'subscriber_email': subscriber_email },
-			success: function(response) {
-				if(response.status == 'success')
-				{
-						$('#message2').text('You subscribed successfully.').fadeIn('slow').delay(4000).fadeOut('slow').css('color', '#666666');
-				}
-				else
-				{
-						$('#message2').text('Sorry! Something went wrong.').fadeIn('slow').delay(4000).fadeOut('slow').css('color', '#666666');
-						
-				}
-			  }
-		});
+	var Regex 				= /^[A-Za-z0-9]+([_\.-][A-Za-z0-9]+)*@[A-Za-z0-9]+([_\.-][A-Za-z0-9]+)*\.([A-Za-z]){2,4}$/i;
+	var subscriber_email 	= $.trim(('#subscriber_email').val());
+	var check 				= Regex.test(email);
+	var validationCheck 	= true;
+
+	if(email == "" )
+	{
+		$('#email').parent().addClass('has-error');	
+		validationCheck = false;		
+	}
+	else if(!Regex.test(email))
+	{
+		$('#email').parent().addClass('has-error');	
+		validationCheck = false;
+	}
+
+	if(validationCheck)
+	{
+		$.ajax({
+				  method: "POST",
+				  url: "api/subscriber",
+				  data: { 'subscriber_email': subscriber_email },
+				success: function(response) {
+					if(response.status == 'success')
+					{
+							$('#message2').text('You subscribed successfully.').fadeIn('slow').delay(4000).fadeOut('slow').css('color', '#666666');
+					}
+					else
+					{
+							$('#message2').text('Sorry! Something went wrong.').fadeIn('slow').delay(4000).fadeOut('slow').css('color', '#666666');
+							
+					}
+				  }
+			});
+	}
 
 }
