@@ -89,14 +89,14 @@ function subscribe()
 	var check 				= Regex.test(email);
 	var validationCheck 	= true;
 
-	if(email == "" )
+	if(subscriber_email == "" )
 	{
-		$('#email').parent().addClass('has-error');	
+		$('#subscriber_email').parent().addClass('has-error');	
 		validationCheck = false;		
 	}
-	else if(!Regex.test(email))
+	else if(!Regex.test(subscriber_email))
 	{
-		$('#email').parent().addClass('has-error');	
+		$('#subscriber_email').parent().addClass('has-error');	
 		validationCheck = false;
 	}
 
@@ -109,12 +109,12 @@ function subscribe()
 				success: function(response) {
 					if(response.status == 'success')
 					{
-							$('#message2').text('You subscribed successfully.').fadeIn('slow').delay(4000).fadeOut('slow').css('color', '#666666');
+						showMsg('#subscriber-success', 'You subscribed successfully.');
+						$('#subscriber_email').val('');
 					}
 					else
 					{
-							$('#message2').text('Sorry! Something went wrong.').fadeIn('slow').delay(4000).fadeOut('slow').css('color', '#666666');
-							
+						showMsg('#subscriber-success', 'Some error occured.');
 					}
 				  }
 			});
