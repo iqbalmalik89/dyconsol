@@ -1185,8 +1185,14 @@ Website: http://abusinesstheme.com
 
 /* ****************** Contact Form Function (dyconsol) ********************** */
 
+function showMsg(id, msg)
+{
+    $(id).html(msg).slideDown('fast').delay(2500).slideUp(1000,function(){}); 
+}
+
 function contactUs()
 {
+	$('div').removeClass('has-error');	
 	var Regex 				= /^[A-Za-z0-9]+([_\.-][A-Za-z0-9]+)*@[A-Za-z0-9]+([_\.-][A-Za-z0-9]+)*\.([A-Za-z]){2,4}$/i;
 	var name 				= $('#name').val();
 	var email 				= $('#email').val();
@@ -1195,51 +1201,67 @@ function contactUs()
 	var country 			= $('#country').val();
 	var security_question 	= $('#security_question').val();
 	var check 				= Regex.test(email);
-	
+	var validationCheck = true;
 
 	if(name == "")
 	{
 		$('#name').parent().addClass('has-error');
+		validationCheck = false;
 	}
-	else if(email == "" )
+	
+	if(email == "" )
 	{
 		$('#email').parent().addClass('has-error');	
+		validationCheck = false;		
 	}
-	else if(check == "false" )
+	else if(!Regex.test(email))
 	{
 		$('#email').parent().addClass('has-error');	
+		validationCheck = false;
 	}
-	else if(number == "")
+		
+	if(number == "")
 	{
-		$('#number').parent().addClass('has-error');
+		$('#phone_number').parent().addClass('has-error');
+		validationCheck = false;
 	}
-	else if(desc == "")
+	
+	if(desc == "")
 	{
 		$('#desc').parent().addClass('has-error');
+		validationCheck = false;		
 	}
-	else if(country == "0")
+	
+	if(country == "0")
 	{
 		$('#country').parent().addClass('has-error');
+		validationCheck = false;
 	}
-	else if(security_question == "")
+	
+	if(security_question == "" || security_question  != '3')
 	{
 		$('#security_question').parent().addClass('has-error');
+		validationCheck = false;
 	}
-	else if(security_question == '3')
+
+	if(validationCheck)
 	{
 		$.ajax({
 			  method: "POST",
 			  url: "api/contactquery",
-			  data: { 'name': name, 'email': email, 'number': number, 'desc': desc, 'country': country }
-			success: function(response) {
+			  data: { 'name': name, 'email': email, 'number': number, 'desc': desc, 'country': country },
+			success: function(response) 
+			{
 				if(response.status == 'success')
 				{
-						$('#message').text('Your query is successfully submitted.').fadeIn('slow').delay(4000).fadeOut('slow').css('color', '#666666');
+					showMsg('#contact-success', 'Contact query submitted successfully');
 				}
 				else
-						$('#message').text('Sorry! Something went wrong.').fadeIn('slow').delay(4000).fadeOut('slow').css('color', '#666666');
-						
+				{
+//						$('#message').text('Sorry! Something went wrong.').fadeIn('slow').delay(4000).fadeOut('slow').css('color', '#666666');					
 				}
+						
+
 			  }
 		});
 	}
@@ -1248,20 +1270,21 @@ function contactUs()
 }
 
 /************* Subcribe function ****************/
-public function subscribe()
+function subscribe()
 {
 	var subscriber_email = $('#subscriber_email').val();
 
 	$.ajax({
 			  method: "POST",
 			  url: "api/subscriber",
-			  data: { 'subscriber_email': subscriber_email }
+			  data: { 'subscriber_email': subscriber_email },
 			success: function(response) {
 				if(response.status == 'success')
 				{
 						$('#message2').text('You subscribed successfully.').fadeIn('slow').delay(4000).fadeOut('slow').css('color', '#666666');
 				}
 				else
+				{
 						$('#message2').text('Sorry! Something went wrong.').fadeIn('slow').delay(4000).fadeOut('slow').css('color', '#666666');
 						
 				}

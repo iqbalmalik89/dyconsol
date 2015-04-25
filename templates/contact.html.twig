@@ -71,20 +71,20 @@
 							<!-- Working contact form -->
 							<form class="working-contact-form form" method="post" action="php/contact.php" onsubmit="return false;">
 								<!-- Success and error Alerts -->
-								<div class="alert alert-success hidden br0" id="contact-success">
-									<span class="glyphicon glyphicon-ok "></span> &nbsp;
-									<strong>Success!</strong> Thank you for your message.
-								</div>
-								<div class="alert alert-danger hidden br0" id="contact-error">
-									<span class="glyphicon glyphicon-remove "></span> &nbsp;
-									<strong>Error!</strong> Oops, something went wrong.
-								</div>
+
+
+						<div class="alert alert-success alert-dismissable" style="display:none; padding-top:3px;padding-bottom:3px;" id="contact-success">
+							xsdasd
+						</div>
+
+
+
 								<!-- Form Fields -->
 								<form onsubmit = "return false" >
 								<div>
 									<div class="form-group">
 										<div class="form-icon icon-user">
-					 						<input name="name" id="name" type="text" class="form-control" placeholder="Name">
+					 						<input name="name" onkeypress="$(this).parent().removeClass('has-error')" id="name" type="text" class="form-control" placeholder="Name">
 					 					</div>
 									</div>
 									<div class="form-group">
