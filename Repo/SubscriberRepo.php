@@ -8,7 +8,6 @@ class SubscriberRepo
 		if(empty($request['subscribed']))
 		{
 			$subscribed = 'yes';
-			echo 'yes';
 		}
 		else
 		{

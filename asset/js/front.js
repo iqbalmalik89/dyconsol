@@ -114,7 +114,7 @@ function subscribe()
 					}
 					else
 					{
-						showMsg('#subscriber-success', 'Some error occured.');
+						showMsg('#subscriber-error', 'You are already subscribed.');
 					}
 				  }
 			});
