@@ -68,6 +68,9 @@ function response($code, $dataAry)
         $app->render('index.html.twig', array('title' => 'Home'));
     })->name('index');
 
+    $app->get('/index', function () use ($app) {
+        $app->render('index.html.twig', array('title' => 'Home'));
+    })->name('index');
 
     $app->get('/contact' , function () use ($app){
         $app->render('contact.html.twig', array('title' => 'Contact Us'));
