@@ -1194,12 +1194,12 @@ function contactUs()
 {
 	$('div').removeClass('has-error');	
 	var Regex 				= /^[A-Za-z0-9]+([_\.-][A-Za-z0-9]+)*@[A-Za-z0-9]+([_\.-][A-Za-z0-9]+)*\.([A-Za-z]){2,4}$/i;
-	var name 				= $.trim(('#name').val());
-	var email 				= $.trim(('#email').val());
-	var number 				= $.trim(('#phone_number').val());
-	var desc 				= $.trim(('#desc').val());
-	var country 			= $.trim(('#country').val());
-	var security_question 	= $.trim(('#security_question').val());
+	var name 				= $.trim($('#name').val());
+	var email 				= $.trim($('#email').val());
+	var number 				= $.trim($('#phone_number').val());
+	var desc 				= $.trim($('#desc').val());
+	var country 			= $.trim($('#country').val());
+	var security_question 	= $.trim($('#security_question').val());
 	var check 				= Regex.test(email);
 	var validationCheck 	= true;
 
