@@ -175,6 +175,14 @@ $app->group('/api', function () use ($app) {
         response($code, array());
     }); 
 
+      $app->post('/subscriber', function() use ($app){
+
+        $new = new SubscriberRepo();
+        $code = $new->addSubscriber($app->requestdata);
+        response($code, array());
+    }); 
+
+
 });
 
 
