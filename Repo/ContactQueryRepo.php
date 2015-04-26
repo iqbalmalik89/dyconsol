@@ -41,6 +41,32 @@ class ContactQueryRepo{
 			
 	}
 
+	public function deleteContactQuery($request)
+	{
+		$id = $request['id'];
+		$response = 400;
+
+		if(!empty($id))
+		{
+			$exists = $GLOBALS['con']->from('contact_query')->where('id',$id)->count();
+			if($exists)
+			{
+				$query = $GLOBALS['con']->deleteFrom('contact_query')->where('id', $id)->execute();
+				$response = 200;
+			}
+			else
+			{
+				$response = 400;
+			}
+		}
+		else
+		{
+			$response = 400;
+		}
+		return $response;
+
+	}
+
 	public function addContactQuery($request)
 	{
 
@@ -65,7 +91,7 @@ class ContactQueryRepo{
 
 
 			// Message Content
-			$body = "You have been contacted by $name." . "\r\n" . "\r\n";
+			$body = "You have been contacted by $name from $country, contact number is $number." . "\r\n" . "\r\n";
 			$content = $desc . "\r\n" . "\r\n";
 			$reply = "You can contact $name at: $email.";
 

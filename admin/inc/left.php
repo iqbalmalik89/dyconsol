@@ -13,14 +13,19 @@
   $currFile = basename($_SERVER['PHP_SELF']); 
  ?>
 
- <li class="sub"> <a <?php if($currFile == 'categories.php' || $currFile == 'subcategory.php' ) echo 'class="active"'; ?> href="categories.php"><i class="fa fa-sitemap"></i><span>Categories</span></a>
-<li class="sub"> <a <?php if($currFile == 'vendors.php' ||  $currFile == 'vendordeals.php' ||  $currFile == 'editvendor.php') echo 'class="active"'; ?> href="vendors.php"><i class="fa fa-briefcase"></i><span>Vendors</span></a>
+ <li class="sub"> <a <?php if($currFile == 'contact_queries.php' ) echo 'class="active"'; ?> href="contact_queries.php"><i class="fa fa-sitemap"></i><span>Contact Queries</span></a>
+ <li class="sub"> <a <?php if($currFile == 'subscriber.php' ) echo 'class="active"'; ?> href="subscriber.php"><i class="fa fa-sitemap"></i><span>Subscribers</span></a>
+ <li class="sub"> <a <?php if($currFile == 'jobs.php' ) echo 'class="active"'; ?> href="jobs.php"><i class="fa fa-sitemap"></i><span>Jobs</span></a>
+
+<?php /*
+<!-- <li class="sub"> <a <?php if($currFile == 'vendors.php' ||  $currFile == 'vendordeals.php' ||  $currFile == 'editvendor.php') echo 'class="active"'; ?> href="vendors.php"><i class="fa fa-briefcase"></i><span>Vendors</span></a>
 <li class="sub"> <a <?php if($currFile == 'events.php' || $currFile == 'editevent.php') echo 'class="active"'; ?> href="events.php"><i class="fa fa-calendar-o"></i><span>Events</span></a>
 <li class="sub"> <a <?php if($currFile == 'deals.php') echo 'class="active"'; ?> href="deals.php"><i class="fa fa-trophy"></i><span>Deals</span></a>
 <li class="sub"> <a <?php if($currFile == 'promovendors.php') echo 'class="active"'; ?> href="promovendors.php"><i class="fa fa-bullhorn"></i><span>Promo Vendors</span></a>
 <li class="sub"> <a <?php if($currFile == 'subscribers.php') echo 'class="active"'; ?> href="subscribers.php"><i class="fa fa-bullhorn"></i><span>Subscribers</span></a>
 <li class="sub"> <a <?php if($currFile == 'queries.php') echo 'class="active"'; ?> href="queries.php"><i class="fa fa-bullhorn"></i><span>Queries</span></a>
-<!--         <ul class="navigation-sub">
+ --> */ ?>
+  <!--         <ul class="navigation-sub">
           <li><a href="buttons.html"><i class="fa fa-power-off"></i><span>Button</span></a></li>
           <li><a href="grids.html"><i class="fa fa-columns"></i><span>Grid</span></a></li>
           <li><a href="icons.html"><i class="fa fa-flag"></i><span>Icon</span></a></li>
