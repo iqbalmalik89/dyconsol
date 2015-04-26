@@ -28,8 +28,8 @@ $( document ).ready(function() {
 ?>
   <!--main start-->
 <!-- Modal -->
-<div class="modal fade" id="addcat" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-<input type="hidden" id="cat_id" value="">
+<div class="modal fade" id="addjob" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<input type="hidden" id="job_id" value="">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -47,7 +47,22 @@ $( document ).ready(function() {
         <div class="form-group">
            <label for="inputEmail3" class="col-sm-2 control-label">Job Name</label>
           <div class="col-sm-4">
-            <input type="text" class="form-control" id="cat_name" />
+            <input type="text" class="form-control" id="title" />
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+    <div class="container">
+  <div class="row clearfix">
+    <div class="col-md-10 column">
+      <form class="form-horizontal" role="form" onsubmit="return false;">
+        <div class="form-group">
+           <label for="inputEmail3" class="col-sm-2 control-label">Description</label>
+          <div class="col-sm-4">
+          <textarea class="form-control" rows="2" id="desc"></textarea>
           </div>
         </div>
       </form>
@@ -60,7 +75,7 @@ $( document ).ready(function() {
       <div class="modal-footer">
         <img src="images/spinner.gif" id="spinner" style="position:absolute; right:150px; display:none;">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" onclick="addUpdateCategory();" class="btn btn-primary">Save</button>
+        <button type="button" onclick="addUpdateJob();" class="btn btn-primary">Save</button>
       </div>
     </div>
   </div>
@@ -82,7 +97,7 @@ $( document ).ready(function() {
          <!--col-md-12 start-->
           <div class="col-md-12">
             <div class="page-heading">
-              <h1>Categories  <button type="button" data-toggle="modal" data-target="#addcat" onclick="showAddPopup();" class="btn btn-primary">Add Category</button>  </h1>
+              <h1>Jobs  <button type="button" data-toggle="modal" data-target="#addjob" onclick="showAddJobPopup();" class="btn btn-primary">Add Job</button>  </h1>
             </div>
           </div><!--col-md-12 end-->
           <div class="col-sm-6 col-md-12">
@@ -90,12 +105,13 @@ $( document ).ready(function() {
               <table class="table table-bordered">
                 <thead>
                   <tr>
-                    <th>Category Name</th>
-                    <th>Subcategories</th>
+                    <th>Job Title</th>
+                    <th>Description</th>
+                    <th>Date Added</th>
                     <th>Actions</th>
                   </tr>
                 </thead>
-                <tbody id="categorybody">
+                <tbody id="jobsbody">
 
                 </tbody>
               </table>
