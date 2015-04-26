@@ -164,6 +164,8 @@ $app->group('/api', function () use ($app) {
         response($code['code'], array('data' => $code['data']));
     }); 
 
+
+// Get Contact Query/Queries    
      $app->get('/contactquery', function() use ($app){
 
         $new = new ContactQueryRepo();
@@ -171,6 +173,7 @@ $app->group('/api', function () use ($app) {
         response($code['code'], array('data' => $code['data']));
     });    
 
+// Add Contact Query
      $app->post('/contactquery', function() use ($app){
 
         $new = new ContactQueryRepo();
@@ -178,6 +181,15 @@ $app->group('/api', function () use ($app) {
         response($code, array());
     }); 
 
+// Delete Contact Query
+     $app->post('/deletecontactquery', function() use ($app){
+
+        $new = new ContactQueryRepo();
+        $code = $new->deleteContactQuery($app->requestdata);
+        response($code, array());
+    }); 
+
+// Add Subscriber
       $app->post('/subscriber', function() use ($app){
 
         $new = new SubscriberRepo();
@@ -185,6 +197,21 @@ $app->group('/api', function () use ($app) {
         response($code, array());
     }); 
 
+// Get Subscriber(s)
+     $app->get('/subscriber', function() use ($app){
+
+        $new = new SubscriberRepo();
+        $code = $new->getSubscriber($app->requestdata);
+        response($code['code'], array('data' => $code['data']));
+    });  
+
+// Delete Subscriber
+     $app->post('/deletesubscriber', function() use ($app){
+
+        $new = new SubscriberRepo();
+        $code = $new->deleteSubscriber($app->requestdata);
+        response($code, array());
+    });
 
 });
 

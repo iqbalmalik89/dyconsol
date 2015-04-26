@@ -2,7 +2,10 @@ var sortBy = '';
 var sortOrder = '';
 var server = window.location.hostname;
 if(server == 'localhost')
+{
   var apiUrl = location.protocol + "//"+server+"/businessapp/bd/slim.php/api/";
+  var newApi = location.protocol + "//"+server+"/dyconsol/api/";
+}
 else
   var apiUrl = location.protocol + "//"+server+"/beta/slim.php/api/";
 
@@ -48,7 +51,7 @@ function login()
             if(data.status == 'success')
             {
                 showMsg('#msg', 'Successfully Logged In. Redirecting ...', 'green')
-                window.location = 'categories.php';
+                window.location = 'contact_queries.php';
             }
           },
           error:function(jqxhr){
@@ -1360,6 +1363,7 @@ function getSubscribers(status, page)
 
         $('#subscriberbody' + status).html(html);
   
+
         $('#pagination'+ status).bootpag({
             total: data.total_pages,          // total pages
             page: curpage,            // default page
@@ -2794,4 +2798,160 @@ function editSubscriber()
           }
         });
     }
+  /**********************************************************************************/
+  /****************************** Dyconsol Functions ********************************/
+  /**********************************************************************************/
+
+function getContactQueries()
+{
+  // if(edit)
+  //   sync = false;
+  // else
+  //   sync = true;
+
+    $.ajax({
+      type: 'GET',
+      url: newApi + 'contactquery',
+      dataType : "JSON",
+      data: {},
+      //async:sync,
+      beforeSend:function(){
+
+      },
+      success:function(data){
+        var html = '';
+        var options = '';
+        if(data.data.length > 0)
+        {
+            $.each(data.data, function( index, value ) {
+
+                //options += '<option value="'+value.id+'">'+value.name+' </option>';
+                html += '<tr>\
+                            <td>'+value.name+'</td>\
+                            <td>'+value.email+'</td>\
+                            <td>'+value.number+'</td>\
+                            <td>'+value.desc+'</td>\
+                            <td>'+value.country+'</td>\
+                            <td><a href="javascript:void(0);" onclick="deleteQuery('+value.id+');">Delete</a></td>\
+                         </tr>';
+
+            });            
+        }
+        else
+        {
+            html += '<tr>\
+                        <td colspan="6" align="center">Contact Queries not found</td>\
+                     </tr>';            
+        }
+
+
+
+        $('#contactquerybody').html(html);
+       // $('#cat_id').append(options);
+
+      },
+      error:function(jqxhr){
+      }
+    });
+}
+
+function deleteQuery(id)
+{
+    $.ajax({
+      type: 'POST',
+      url: newApi + 'deletecontactquery',
+      dataType : "JSON",
+      data: {id:id},
+      beforeSend:function(){
+
+      },
+      success:function(data){
+        getContactQueries();
+      },
+      error:function(jqxhr){
+      }
+    });
+}
+
+
+function getDSubscribers(page)
+{
+  // if(edit)
+  //   sync = false;
+  // else
+  //   sync = true;
+
+  curpage = page;
+    if(page > 0)
+      page -= 1;
+
+    $.ajax({
+      type: 'GET',
+      url: newApi + 'subscriber',
+      dataType : "JSON",
+      data: {},
+      //async:sync,
+      beforeSend:function(){
+
+      },
+      success:function(data){
+        var html = '';
+        var options = '';
+        if(data.data.length > 0)
+        {
+            $.each(data.data, function( index, value ) {
+
+                //options += '<option value="'+value.id+'">'+value.name+' </option>';
+                html += '<tr>\
+                            <td>'+value.subscriber_email+'</td>\
+                            <td>'+value.subscribed+'</td>\
+                            <td>'+value.date_created+'</td>\
+                            <td><a href="javascript:void(0);" onclick="deleteDSubscriber('+value.id+');">Delete</a></td>\
+                         </tr>';
+
+            });            
+        }
+        else
+        {
+            html += '<tr>\
+                        <td colspan="4" align="center">Subscribers not found</td>\
+                     </tr>';            
+        }
+
+        $('#subscriberbody').html(html);
+       // $('#cat_id').append(options);
+
+       $('#pagination'+ status).bootpag({
+            total: data.total_pages,          // total pages
+            page: curpage,            // default page
+            maxVisible: 5,     // visible pagination
+            leaps: true         // next/prev leaps through maxVisible
+        }).on("page", function(event, num){
+
+          getDSubscribers(status, num);
+           }); 
+
+      },
+      error:function(jqxhr){
+      }
+    });
+}
+
+function deleteDSubscriber(id)
+{
+    $.ajax({
+      type: 'POST',
+      url: newApi + 'deletesubscriber',
+      dataType : "JSON",
+      data: {id:id},
+      beforeSend:function(){
+
+      },
+      success:function(data){
+        getDSubscribers();
+      },
+      error:function(jqxhr){
+      }
+    });
+}
 
