@@ -14,7 +14,7 @@
     <![endif]-->
 <script>
 $( document ).ready(function() {
-  getCategories();
+  getJobs();
 });
 </script>
 </head>
@@ -35,7 +35,7 @@ $( document ).ready(function() {
       <div class="modal-header">
           <div class="notification-bar" id="msg" style="display: none;"></div>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel"><span id="mode">Add </span> Category</h4>
+        <h4 class="modal-title" id="myModalLabel"><span id="mode">Add </span> Job</h4>
       </div>
       <div class="modal-body">
 
@@ -45,7 +45,7 @@ $( document ).ready(function() {
     <div class="col-md-10 column">
       <form class="form-horizontal" role="form" onsubmit="return false;">
         <div class="form-group">
-           <label for="inputEmail3" class="col-sm-2 control-label">Category Name</label>
+           <label for="inputEmail3" class="col-sm-2 control-label">Job Name</label>
           <div class="col-sm-4">
             <input type="text" class="form-control" id="cat_name" />
           </div>
