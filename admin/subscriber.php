@@ -84,6 +84,8 @@ $( document ).ready(function() {
             <div class="page-heading">
               <h1>Subscribers  </h1>
             </div>
+          <div class="notification-bar" id="deletemsg" style="display: none;"></div>
+            
           </div><!--col-md-12 end-->
           <div class="col-sm-6 col-md-12">
             <div class="box-info">
@@ -91,7 +93,7 @@ $( document ).ready(function() {
                 <thead>
                   <tr>
                     <th>Email</th>
-                    <th>Subscribed</th>
+<!--                     <th>Subscribed</th> -->
                     <th>Date Created</th>
                     <th>Actions</th>
                   </tr>

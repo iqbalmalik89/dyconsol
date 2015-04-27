@@ -149,6 +149,14 @@ $app->add(new JsonMiddleware('/api'));
 
 $app->group('/api', function () use ($app) {
 
+    // Login
+    $app->post('/login' , function () use ($app){
+
+        $new = new LoginRepo();
+        $code = $new->login($app->requestdata);
+        response($code, $code['data']);
+    }); 
+    
     // Add Category
     $app->post('/addcategory' , function () use ($app){
         $new = new CategoryRepo();

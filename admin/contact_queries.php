@@ -78,12 +78,17 @@ $( document ).ready(function() {
     <!--scrollable wrapper start-->
       <div class="scrollable wrapper">
       <!--row start-->
+
         <div class="row">
+      
          <!--col-md-12 start-->
           <div class="col-md-12">
+
             <div class="page-heading">
               <h1>Contact Queries  </h1>
             </div>
+          <div class="notification-bar" id="msg" style="display: none;"></div>
+
           </div><!--col-md-12 end-->
           <div class="col-sm-6 col-md-12">
             <div class="box-info">

@@ -3,11 +3,10 @@ var sortOrder = '';
 var server = window.location.hostname;
 if(server == 'localhost')
 {
-  var apiUrl = location.protocol + "//"+server+"/businessapp/bd/slim.php/api/";
-  var newApi = location.protocol + "//"+server+"/dyconsol/api/";
+  var apiUrl = location.protocol + "//"+server+"/dyconsol/api/";
 }
 else
-  var apiUrl = location.protocol + "//"+server+"/beta/slim.php/api/";
+  var apiUrl = location.protocol + "//"+server+"/dyconsol/api/";
 
 
 function showMsg(id, msg, type)
@@ -2811,7 +2810,7 @@ function getContactQueries()
 
     $.ajax({
       type: 'GET',
-      url: newApi + 'contactquery',
+      url: apiUrl + 'contactquery',
       dataType : "JSON",
       data: {},
       //async:sync,
@@ -2859,7 +2858,7 @@ function deleteQuery(id)
 {
     $.ajax({
       type: 'POST',
-      url: newApi + 'deletecontactquery',
+      url: apiUrl + 'deletecontactquery',
       dataType : "JSON",
       data: {id:id},
       beforeSend:function(){
@@ -2867,6 +2866,7 @@ function deleteQuery(id)
       },
       success:function(data){
         getContactQueries();
+        showMsg('#msg', 'Contact query deleted successfully.', 'green');
       },
       error:function(jqxhr){
       }
@@ -2887,7 +2887,7 @@ function getDSubscribers(page)
 
     $.ajax({
       type: 'GET',
-      url: newApi + 'subscriber',
+      url: apiUrl + 'subscriber',
       dataType : "JSON",
       data: {},
       //async:sync,
@@ -2904,7 +2904,6 @@ function getDSubscribers(page)
                 //options += '<option value="'+value.id+'">'+value.name+' </option>';
                 html += '<tr>\
                             <td>'+value.subscriber_email+'</td>\
-                            <td>'+value.subscribed+'</td>\
                             <td>'+value.date_created+'</td>\
                             <td><a href="javascript:void(0);" onclick="deleteDSubscriber('+value.id+');">Delete</a></td>\
                          </tr>';
@@ -2921,14 +2920,14 @@ function getDSubscribers(page)
         $('#subscriberbody').html(html);
        // $('#cat_id').append(options);
 
-       $('#pagination'+ status).bootpag({
+       $('#pagination').bootpag({
             total: data.total_pages,          // total pages
             page: curpage,            // default page
             maxVisible: 5,     // visible pagination
             leaps: true         // next/prev leaps through maxVisible
         }).on("page", function(event, num){
 
-          getDSubscribers(status, num);
+          getDSubscribers(num);
            }); 
 
       },
@@ -2941,13 +2940,16 @@ function deleteDSubscriber(id)
 {
     $.ajax({
       type: 'POST',
-      url: newApi + 'deletesubscriber',
+      url: apiUrl + 'deletesubscriber',
       dataType : "JSON",
       data: {id:id},
       beforeSend:function(){
 
       },
       success:function(data){
+
+        showMsg('#deletemsg', 'Subscriber deleted successfully.', 'green')
+
         getDSubscribers();
       },
       error:function(jqxhr){
