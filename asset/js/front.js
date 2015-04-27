@@ -65,12 +65,18 @@ function contactUs()
 				if(response.status == 'success')
 				{
 					showMsg('#contact-success', 'Contact query submitted successfully');
-					document.getElementById('name').reset();
-					document.getElementById('email').reset();
-					document.getElementById('phone_number').reset();
-					document.getElementById('desc').reset();
-					document.getElementById('country').reset();
-					document.getElementById('security_question').reset();
+					$('#name').val('');
+					$('#email').val('');
+					$('#phone_number').val('');
+					$('#desc').val('');
+					$('#country').val('Pakistan');
+					$('#security_question').val('');
+					// document.getElementById('name').reset();
+					// document.getElementById('email').reset();
+					// document.getElementById('phone_number').reset();
+					// document.getElementById('desc').reset();
+					// document.getElementById('country').reset();
+					// document.getElementById('security_question').reset();
 				}
 				else
 				{
