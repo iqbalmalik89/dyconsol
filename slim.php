@@ -113,7 +113,7 @@ function response($code, $dataAry)
     });
 
     $app->get('/admin/' , function () use ($app){
-        echo "<script>window.location='index.php'</script>";
+        echo "<script>window.location='login.php'</script>";
     });
 
     $app->get('/careers' , function () use ($app){
