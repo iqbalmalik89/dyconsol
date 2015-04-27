@@ -39,9 +39,6 @@ class JsonMiddleware extends \Slim\Middleware
         }
 
 
-
-
-
         $this->next->call();
     }
 
