@@ -93,7 +93,7 @@ $( document ).ready(function() {
                 <thead>
                   <tr>
                     <th>Email</th>
-<!--                     <th>Subscribed</th> -->
+<!--                <th>Subscribed</th> -->
                     <th>Date Created</th>
                     <th>Actions</th>
                   </tr>

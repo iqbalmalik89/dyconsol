@@ -1,0 +1,70 @@
+{% extends "base.html.twig" %}
+
+{% block title %}{{title}}{% endblock %}
+{% block bodyclass %}{{''}}{% endblock %}
+
+
+
+{% block content %}
+
+
+
+
+<!-- Page Header -->
+	<header class="titlebar titlebar1">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12">
+					<h1 class="page-title pull-left">Careers</h1>
+					<ol class="breadcrumb pull-right">
+						<li><a href="index">Home</a></li>
+						<li class="active">Careers</li>
+					</ol>
+				</div>
+			</div>
+		</div>
+	</header> <!-- END Page Header -->
+
+	<section class="section-4">
+
+
+
+
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-5 col-md-4">
+					<aside class="sidebar-jobs">
+						<ul class="jobs-list mb50">
+							{% for job in jobs %}
+							<li class="job-location"> {{ job.title }}</li>
+							{% endfor %}							
+					</ul>
+					</aside>
+				</div>
+
+
+
+
+
+				<div class="col-sm-7 col-md-8 space-left">
+					<div class="row">
+						<div class="col-sm-12">
+							{% for job in jobs %}
+								<h3 class="section-title-2">{{ job.title  }}</h3>
+							<p>{{ job.desc | raw  }}</p>
+							
+							{% endfor %}							
+
+
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section> 
+
+	{% endblock %}
+
+
+	

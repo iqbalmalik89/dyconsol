@@ -2922,7 +2922,7 @@ function getDSubscribers(page)
 
        $('#pagination').bootpag({
             total: data.total_pages,          // total pages
-            page: curpage,            // default page
+            page: page,            // default page
             maxVisible: 5,     // visible pagination
             leaps: true         // next/prev leaps through maxVisible
         }).on("page", function(event, num){
@@ -2950,10 +2950,209 @@ function deleteDSubscriber(id)
 
         showMsg('#deletemsg', 'Subscriber deleted successfully.', 'green')
 
-        getDSubscribers();
+        getDSubscribers(1);
       },
       error:function(jqxhr){
       }
     });
 }
 
+function getJobs()
+{
+  // if(edit)
+  //   sync = false;
+  // else
+  //   sync = true;
+    $.ajax({
+      type: 'GET',
+      url: apiUrl + 'job',
+      dataType : "JSON",
+      data: {},
+      //async:sync,
+      beforeSend:function(){
+
+      },
+      success:function(data){
+        var html = '';
+        var options = '';
+        if(data.data.length > 0)
+        {        
+
+            $.each(data.data, function( index, value ) {
+              if(value.status == 0)
+                var status = '<i class="fa fa-times-circle"></i> ';
+              else
+                var status = '<i class="fa fa-check-circle"></i> ';
+
+                //options += '<option value="'+value.id+'">'+value.name+' </option>';
+                html += '<tr>\
+                            <td>'+ status+value.title+'</td>\
+                            <td>'+value.desc+'</td>\
+                            <td><a href="javascript:void(0);" data-toggle="modal"  onclick="getSingleJob('+value.id+');" data-target="#addjob">Edit</a> |<a href="javascript:void(0);" onclick="deleteJob('+value.id+');">Delete</a></td>\
+                         </tr>';
+
+            });            
+        }
+        else
+        { 
+            html += '<tr>\
+                        <td colspan="4" align="center">Jobs not found</td>\
+                     </tr>';            
+        }
+
+
+
+        $('#jobsbody').html(html);
+       // $('#cat_id').append(options);
+
+      },
+      error:function(jqxhr){
+      }
+    });
+}
+
+function deleteJob(id)
+{
+    $.ajax({
+      type: 'POST',
+      url: apiUrl + 'deletejob',
+      dataType : "JSON",
+      data: {id:id},
+      beforeSend:function(){
+
+      },
+      success:function(data){
+        showMsg('#jobmsg', 'Job deleted successfully.', 'green');
+        getJobs();
+      },
+      error:function(jqxhr){
+      }
+    });
+}
+
+function getSingleJob(id)
+{
+    $('#job_id').val(id);
+
+    jobReset();  
+    $.ajax({
+      type: 'GET',
+      url: apiUrl + 'job',
+      dataType : "JSON",
+      data: {id:id},
+      beforeSend:function(){
+
+      },
+
+      success:function(data){
+
+        $('#job_id').val(data.data[0].id);
+        $('#title').val(data.data[0].title);
+        $('#status').val(data.data[0].status);
+
+//        $('#desc').val(data.data[0].desc);
+
+  var editor =     $('#desc').data("wysihtml5").editor
+
+editor.setValue(data.data[0].desc, true);
+
+      },
+      error:function(jqxhr){
+      }
+    });
+
+}
+
+function showAddJobPopup()
+{
+    jobReset();
+}
+
+function jobReset()
+{
+    $('#job_id').val('');
+    $('#title').val('');
+    var editor =     $('#desc').data("wysihtml5").editor
+    editor.setValue('', true);
+}
+
+function addUpdateJob()
+{
+    var id = $('#job_id').val();
+    var title = $('#title').val();
+    var desc = $('#desc').val();
+    var status = $('#status').val();    
+    var check  = true;
+
+    if(title == '')
+    {
+        $('#title').focus();
+        $('#title').addClass('error-class');
+        check = false;
+    }
+    if(desc == '')
+    {
+        $('#desc').focus();
+        $('#desc').addClass('error-class');
+        check = false;
+    }
+
+    if(check)
+    {
+         if(id == '')
+          {          
+              $('#spinner').show();      
+              $.ajax({
+                type: 'POST',
+                url: apiUrl + 'job',
+                dataType : "JSON",
+                data: {title:title, desc:desc, status:status},
+                beforeSend:function(){
+
+                },
+                success:function(data){
+                $('#spinner').hide();   
+                $('#addjob').modal('hide');
+                  if(data.status == 'success')
+                  {
+                      showMsg('#jobmsg', 'Job added successfully.', 'green');                    
+                      getJobs();
+                      $('#addjob').modal('hide');
+                  }
+                },
+                error:function(jqxhr){
+                  $('#spinner').hide();      
+                  showMsg('#msg', 'Job already exists with this name.', 'red');
+                }
+              });
+            }
+            else
+            {
+
+                $('#spinner').show();      
+              $.ajax({
+                type: 'POST',
+                url: apiUrl + 'editjob',
+                dataType : "JSON",
+                data: {id:id, title:title, desc:desc, status:status},
+                beforeSend:function(){
+
+                },
+                success:function(data){
+                $('#addjob').modal('hide');  
+                $('#spinner').hide();      
+                  if(data.status == 'success')
+                  {
+                      showMsg('#jobmsg', 'Job updated successfully.', 'green');                    
+                      getJobs();                
+                      $('#addjob').modal('hide');
+                  }
+                },
+                error:function(jqxhr){
+                  $('#spinner').hide();      
+                  showMsg('#jobmsg', 'Job already exists with this name.', 'red');
+                }
+              });
+            }
+    }
+}

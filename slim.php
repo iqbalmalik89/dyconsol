@@ -112,8 +112,15 @@ function response($code, $dataAry)
         $app->render('banking.html.twig', array('title' => 'Banking'));
     });
 
+    $app->get('/admin/' , function () use ($app){
+        echo "<script>window.location='index.php'</script>";
+    });
+
     $app->get('/careers' , function () use ($app){
-        $app->render('careers.html.twig', array('title' => 'Careers'));
+        $jobRepo = new JobRepo();
+        $jobs = $jobRepo->getJobs(array('status' => 1));
+ //           print_r($jobs);
+        $app->render('careers.html.twig', array('title' => 'Careers', 'jobs' => $jobs['data']));
     });
 
 
@@ -220,6 +227,63 @@ $app->group('/api', function () use ($app) {
         $code = $new->deleteSubscriber($app->requestdata);
         response($code, array());
     });
+
+    // Add Job
+      $app->post('/job', function() use ($app){
+
+        $new = new JobRepo();
+        $code = $new->addJob($app->requestdata);
+        response($code, array());
+    }); 
+
+      // Edit Job
+      $app->post('/editjob', function() use ($app){
+
+        $new = new JobRepo();
+        $code = $new->editJob($app->requestdata);
+        response($code, array());
+    }); 
+
+// Get Job(s)
+     $app->get('/job', function() use ($app){
+
+        $new = new JobRepo();
+        $code = $new->getJobs($app->requestdata);
+        response($code['code'], array('data' => $code['data']));
+    });  
+
+// Delete Subscriber
+     $app->post('/deletejob', function() use ($app){
+
+        $new = new JobRepo();
+        $code = $new->deleteJob($app->requestdata);
+        response($code, array());
+    });
+
+    $app->get('/admindata', function() use ($app){
+        $new = new LoginRepo();
+        $code = $new->getAdminData();
+        response(200, array('data' => $code));
+    });
+
+    $app->post('/editadmindata', function() use ($app){
+        $new = new LoginRepo();
+        $code = $new->editAdminData($app->requestdata);
+        response($code, array());
+        
+    });
+
+    $app->post('/editadminpassword', function() use ($app){
+        $new = new LoginRepo();
+        $code = $new->editadminpassword($app->requestdata);
+        response($code, array());
+        
+    });     
+
+    $app->get('/logout' , function () use ($app){
+        session_destroy();
+        response(200, array());
+    }); 
 
 });
 

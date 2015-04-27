@@ -12,6 +12,14 @@
 <link href="css/font-awesome.min.css" rel="stylesheet">
 <link rel="stylesheet" href="plugins/PCharts/style.css" type="text/css">
 <link href="plugins/kalendar/kalendar.css" rel="stylesheet">
+
+
+<link rel="stylesheet" type="text/css" href="lib/css/bootstrap.min.css"></link>
+<link rel="stylesheet" type="text/css" href="lib/css/prettify.css"></link>
+
+<link rel="stylesheet" type="text/css" href="src/bootstrap-wysihtml5.css"></link>
+
+
 <!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'> -->
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
 <script src="js/jquery-1.10.2.js"></script> 
@@ -43,4 +51,8 @@
 <script src="js/jquery.bootpag.js" type="text/javascript" /></script>
 
 
+
+<script src="lib/js/wysihtml5-0.3.0.js"></script>
+<script src="lib/js/prettify.js"></script>
+<script src="src/bootstrap-wysihtml5.js"></script>
 
