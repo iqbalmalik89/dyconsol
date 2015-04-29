@@ -3156,3 +3156,225 @@ function addUpdateJob()
             }
     }
 }
+
+function getClients()
+{
+  // if(edit)
+  //   sync = false;
+  // else
+  //   sync = true;
+    $.ajax({
+      type: 'GET',
+      url: apiUrl + 'client',
+      dataType : "JSON",
+      data: {},
+      //async:sync,
+      beforeSend:function(){
+
+      },
+      success:function(data){
+        var html = '';
+        var options = '';
+        if(data.data.length > 0)
+        {        
+
+            $.each(data.data, function( index, value ) {
+              // if(value.status == 0)
+              //   var status = '<i class="fa fa-times-circle"></i> ';
+              // else
+              //   var status = '<i class="fa fa-check-circle"></i> ';
+
+                //options += '<option value="'+value.id+'">'+value.name+' </option>';
+                html += '<tr>\
+                            <td>'+value.client_name+'</td>\
+                            <td>'+value.person_name+'</td>\
+                            <td>'+value.testimonial+'</td>\
+                            <td>'+value.picture+'</td>\
+                            <td>'+value.status+'</td>\
+                            <td><a href="javascript:void(0);" data-toggle="modal"  onclick="getSingleClient('+value.id+');" data-target="#addclient">Edit</a> |<a href="javascript:void(0);" onclick="deleteClient('+value.id+');">Delete</a></td>\
+                         </tr>';
+
+            });            
+        }
+        else
+        { 
+            html += '<tr>\
+                        <td colspan="6" align="center">Clients not found</td>\
+                     </tr>';            
+        }
+
+
+
+        $('#clientsbody').html(html);
+       // $('#cat_id').append(options);
+
+      },
+      error:function(jqxhr){
+      }
+    });
+}
+
+
+function deleteClient(id)
+{
+    $.ajax({
+      type: 'POST',
+      url: apiUrl + 'deleteclient',
+      dataType : "JSON",
+      data: {id:id},
+      beforeSend:function(){
+
+      },
+      success:function(data){
+        showMsg('#jobmsg', 'Client deleted successfully.', 'green');
+        getClients();
+      },
+      error:function(jqxhr){
+      }
+    });
+}
+
+function getSingleClient(id)
+{
+    $('#client_id').val(id);
+
+    jobReset();  
+    $.ajax({
+      type: 'GET',
+      url: apiUrl + 'client',
+      dataType : "JSON",
+      data: {id:id},
+      beforeSend:function(){
+
+      },
+
+      success:function(data){
+        console.log(data.data[0]);
+        $('#client_id').val(data.data[0].id);
+        $('#client_name').val(data.data[0].client_name);
+        $('#person_name').val(data.data[0].person_name);
+        $('#status').val(data.data[0].status);
+
+      // $('#testimonial').val(data.data[0].testimonial);
+
+  var editor =     $('#testimonial').data("wysihtml5").editor
+
+editor.setValue(data.data[0].testimonial, true);
+
+      },
+      error:function(jqxhr){
+      }
+    });
+
+}
+
+function addUpdateClient()
+{
+    var id = $('#client_id').val();
+    var client_name  = $('#client_name').val();
+    var person_name = $('#person_name').val();
+    var testimonial = $('#testimonial').val();
+    var status = $('#status').val();    
+    var picture = "http//";
+    var check  = true;
+
+    if(client_name == '')
+    {
+        $('#client_name').focus();
+        $('#client_name').addClass('error-class');
+        check = false;
+    }
+    if(person_name == '')
+    {
+        $('#person_name').focus();
+        $('#person_name').addClass('error-class');
+        check = false;
+    }
+    if(testimonial == '')
+    {
+        $('#testimonial').focus();
+        $('#testimonial').addClass('error-class');
+        check = false;
+    }
+    if(status == '')
+    {
+        $('#status').focus();
+        $('#status').addClass('error-class');
+        check = false;
+    }
+
+    if(check)
+    {
+         if(id == '')
+          {          
+              $('#spinner').show();      
+              $.ajax({
+                type: 'POST',
+                url: apiUrl + 'client',
+                dataType : "JSON",
+                data: {client_name:client_name, person_name:person_name,testimonial: testimonial,picture:picture, status:status},
+                beforeSend:function(){
+
+                },
+                success:function(data){
+                $('#spinner').hide();   
+                $('#addclient').modal('hide');
+                  if(data.status == 'success')
+                  {
+                      showMsg('#jobmsg', 'Client added successfully.', 'green');                    
+                      getClients();
+                      $('#addclient').modal('hide');
+                  }
+                },
+                error:function(jqxhr){
+                  $('#spinner').hide();      
+                  showMsg('#msg', 'Client already exists with this name.', 'red');
+                }
+              });
+            }
+            else
+            {
+                $('#spinner').show();      
+              $.ajax({
+                type: 'POST',
+                url: apiUrl + 'editclient',
+                dataType : "JSON",
+                data: {id:id, client_name:client_name, person_name:person_name,testimonial: testimonial,picture:picture, status:status},
+                beforeSend:function(){
+
+                },
+                success:function(data){
+                $('#addclient').modal('hide');  
+                $('#spinner').hide();      
+                  if(data.status == 'success')
+                  {
+                      showMsg('#jobmsg', 'Client updated successfully.', 'green');                    
+                      getClientss();                
+                      $('#addclient').modal('hide');
+                  }
+                },
+                error:function(jqxhr){
+                  $('#spinner').hide();      
+                  showMsg('#jobmsg', 'Client already exists with this name.', 'red');
+                }
+              });
+            }
+    }
+}
+
+function showAddClientPopup()
+{
+    clientReset();
+}
+
+function clientReset()
+{
+    $('#client_id').val('');
+    $('#client_name').val('');
+    $('#person_name').val('');
+    $('#testimonial').val('');
+   // $('#client_id').val('');
+    //$('#title').val('');
+    var editor =     $('#testimonial').data("wysihtml5").editor
+    editor.setValue('', true);
+}

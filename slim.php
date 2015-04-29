@@ -252,7 +252,7 @@ $app->group('/api', function () use ($app) {
         response($code['code'], array('data' => $code['data']));
     });  
 
-// Delete Subscriber
+// Delete Job
      $app->post('/deletejob', function() use ($app){
 
         $new = new JobRepo();
@@ -284,6 +284,38 @@ $app->group('/api', function () use ($app) {
         session_destroy();
         response(200, array());
     }); 
+
+    // Add Client
+      $app->post('/client', function() use ($app){
+
+        $new = new ClientsRepo();
+        $code = $new->addClient($app->requestdata);
+        response($code, array());
+    }); 
+
+      // Edit Job
+      $app->post('/editclient', function() use ($app){
+
+        $new = new ClientsRepo();
+        $code = $new->editClient($app->requestdata);
+        response($code, array());
+    }); 
+
+// Get Job(s)
+     $app->get('/client', function() use ($app){
+
+        $new = new ClientsRepo();
+        $code = $new->getClients($app->requestdata);
+        response($code['code'], array('data' => $code['data']));
+    });  
+
+// Delete Job
+     $app->post('/deleteclient', function() use ($app){
+
+        $new = new ClientsRepo();
+        $code = $new->deleteClient($app->requestdata);
+        response($code, array());
+    });
 
 });
 

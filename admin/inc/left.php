@@ -16,6 +16,8 @@
  <li class="sub"> <a <?php if($currFile == 'contact_queries.php' ) echo 'class="active"'; ?> href="contact_queries.php"><i class="fa fa-sitemap"></i><span>Contact Queries</span></a>
  <li class="sub"> <a <?php if($currFile == 'subscriber.php' ) echo 'class="active"'; ?> href="subscriber.php"><i class="fa fa-sitemap"></i><span>Subscribers</span></a>
  <li class="sub"> <a <?php if($currFile == 'jobs.php' ) echo 'class="active"'; ?> href="jobs.php"><i class="fa fa-sitemap"></i><span>Jobs</span></a>
+ <li class="sub"> <a <?php if($currFile == 'clients.php' ) echo 'class="active"'; ?> href="clients.php"><i class="fa fa-sitemap"></i><span>Clients</span></a>
+
 
 <?php /*
 <!-- <li class="sub"> <a <?php if($currFile == 'vendors.php' ||  $currFile == 'vendordeals.php' ||  $currFile == 'editvendor.php') echo 'class="active"'; ?> href="vendors.php"><i class="fa fa-briefcase"></i><span>Vendors</span></a>
