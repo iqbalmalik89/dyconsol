@@ -1,7 +1,7 @@
 <?php 
 class ClientsRepo{
 
-	public function getClientss($request)
+	public function getClients($request)
 	{
 			$requestData = $request;
 			// Initial response is bad request
@@ -73,7 +73,7 @@ class ClientsRepo{
 		if(!empty($request))
 		{
 	
-			$values = array('client_name' => $request['client_name'],'person_name' => $request['person_name'] ,'testimonial' => $request['testimonial'], '`status`' => $request['status']);
+			$values = array('client_name' => $request['client_name'],'person_name' => $request['person_name'] ,'testimonial' => $request['testimonial'],'picture' => $request['picture'], '`status`' => $request['status']);
 			$query = $GLOBALS['con']->insertInto('clients', $values)->execute();
 
 
@@ -99,7 +99,7 @@ class ClientsRepo{
 
 			if($count > 0)
 			{
-				$values = array('client_name' => $request['client_name'],'person_name' => $request['person_name'] ,'testimonial' => $request['testimonial'], '`status`' => $request['status']);
+				$values = array('client_name' => $request['client_name'],'person_name' => $request['person_name'] ,'testimonial' => $request['testimonial'], 'picture' => $request['picture'], '`status`' => $request['status']);
 			$query = $GLOBALS['con']->update('clients', $values, $request['id'])->execute();
 
 				$response = 200;
