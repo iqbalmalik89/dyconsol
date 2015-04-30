@@ -106,27 +106,27 @@
 								<div>
 									<div class="form-group">
 										<div class="form-icon icon-user">
-					 						<input name="name" onkeypress="$(this).parent().removeClass('has-error')" id="name" type="text" class="form-control" placeholder="Name">
+					 						<input name="name" required onkeypress="$(this).parent().removeClass('has-error')" id="name" type="text" class="form-control" placeholder="Name">
 					 					</div>
 									</div>
 									<div class="form-group">
 										<div class="form-icon icon-email">
-					 						<input name="email" id="email" type="text" class="form-control" placeholder="Email">
+					 						<input name="email" id="email" type="email" required class="form-control" placeholder="Email">
 					 					</div>
 									</div>
 									<div class="form-group">
 										<div class="form-icon icon-mobile">
-					 						<input name="phone_number" id="phone_number" type="text" class="form-control" placeholder="Phone Number">
+					 						<input name="phone_number" id="phone_number"  required type="text" class="form-control" placeholder="Phone Number">
 					 					</div>
 									</div>
 									<div class="form-group">
 										<div class="form-icon icon-message">
-					 						<textarea name="desc" id="desc" cols="30" rows="8" class="form-control" placeholder="Description"></textarea>
+					 						<textarea name="desc" id="desc" cols="30"  required rows="8" class="form-control" placeholder="Description"></textarea>
 					 					</div>
 									</div>
 									<div class="form-group" style="opacity:.5;">
 										<div class="form-icon icon-message">
-					 						<select id="country" cols="30" rows="8" class="form-control" >
+					 						<select id="country" cols="30"  required rows="8" class="form-control" >
 
 					 								<option value="Pakistan">Pakistan</option>
 													<option value="Canada">Canada</option>
@@ -143,7 +143,7 @@
 									</div>
 									<div class="form-group">
 										<div class="form-icon icon-mobile">
-					 						<input name="security" id="security_question" type="text" class="form-control" placeholder="Security 2+1=">
+					 						<input name="security" id="security_question"  required type="text" class="form-control" placeholder="Security 2+1=">
 					 					</div>
 									</div>
 							 		<input type="submit" onclick="contactUs();" value="Submit">

@@ -29,8 +29,9 @@
 
 
 
-
 		<div class="container">
+		{% if jobs |length > 0 %}
+
 			<div class="row">
 				<div class="col-sm-5 col-md-4">
 					<aside class="sidebar-jobs">
@@ -41,8 +42,6 @@
 					</ul>
 					</aside>
 				</div>
-
-
 
 
 
@@ -61,6 +60,11 @@
 					</div>
 				</div>
 			</div>
+			{% else %}
+				
+				We're sorry. Currently no jobs available. However, drop us your at <b>career@dyconsol.com</b> and we will contact you in future.
+
+			{% endif %}
 		</div>
 	</section> 
 

@@ -84,7 +84,7 @@ class ContactQueryRepo{
 
 			// Enter your email address below.
 			// Example $to_address = "bruce.wayne@yourdomain.com";
-			$to_address = "jasonbourne501@gmail.com"; 
+			$to_address = "jasonbourne501@gmail.com, talhajamil@gmail.com"; 
 
 			// Also, you can change the value of the $subject variable to whatever you like
 			$subject = "$name has contacted you via your Contact Form";
