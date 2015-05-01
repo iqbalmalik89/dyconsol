@@ -17,6 +17,7 @@
  <li class="sub"> <a <?php if($currFile == 'subscriber.php' ) echo 'class="active"'; ?> href="subscriber.php"><i class="fa fa-sitemap"></i><span>Subscribers</span></a>
  <li class="sub"> <a <?php if($currFile == 'jobs.php' ) echo 'class="active"'; ?> href="jobs.php"><i class="fa fa-sitemap"></i><span>Jobs</span></a>
  <li class="sub"> <a <?php if($currFile == 'clients.php' ) echo 'class="active"'; ?> href="clients.php"><i class="fa fa-sitemap"></i><span>Clients</span></a>
+ <li class="sub"> <a <?php if($currFile == 'testimonial.php' ) echo 'class="active"'; ?> href="testimonial.php"><i class="fa fa-sitemap"></i><span>Testimonials</span></a>
 
 
 <?php /*
