@@ -10,16 +10,25 @@ class ClientsRepo{
 			// If there is some data in json form
 			if(!empty($requestData['id']))
 			{				
-				$exists = $GLOBALS['con']->from('clients')->where('id',$requestData['id']);
-				$data = array();
+				$count = $GLOBALS['con']->from('clients')->where('id',$request['id'])->count();
+				if($count > 0)
+				{
+					$exists = $GLOBALS['con']->from('clients')->where('id',$requestData['id']);
+					$data = array();
 
-				foreach($exists as $clients)
-		    	{
-					$data[] = $clients;
+					foreach($exists as $clients)
+			    	{
+						$data[] = $clients;
 
+					}
+
+					$response = 200;
 				}
-
-				$response = 200;
+				else
+				{
+					$data = array();
+					$response = 400;
+				}
 			}
 			
 			else

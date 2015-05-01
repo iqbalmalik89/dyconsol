@@ -3238,7 +3238,7 @@ function getSingleClient(id)
 {
     $('#client_id').val(id);
 
-    jobReset();  
+    clientReset();  
     $.ajax({
       type: 'GET',
       url: apiUrl + 'client',
@@ -3249,7 +3249,7 @@ function getSingleClient(id)
       },
 
       success:function(data){
-        console.log(data.data[0]);
+        
         $('#client_id').val(data.data[0].id);
         $('#client_name').val(data.data[0].client_name);
         $('#person_name').val(data.data[0].person_name);
@@ -3270,13 +3270,13 @@ editor.setValue(data.data[0].testimonial, true);
 
 function addUpdateClient()
 {
-    var id = $('#client_id').val();
-    var client_name  = $('#client_name').val();
-    var person_name = $('#person_name').val();
-    var testimonial = $('#testimonial').val();
-    var status = $('#status').val();    
-    var picture = "http//";
-    var check  = true;
+    var id            = $('#client_id').val();
+    var client_name   = $('#client_name').val();
+    var person_name   = $('#person_name').val();
+    var testimonial   = $('#testimonial').val();
+    var status        = $('#status').val();    
+    var picture       = $('#picture').val();
+    var check         = true;
 
     if(client_name == '')
     {
@@ -3349,7 +3349,7 @@ function addUpdateClient()
                   if(data.status == 'success')
                   {
                       showMsg('#jobmsg', 'Client updated successfully.', 'green');                    
-                      getClientss();                
+                      getClients();                
                       $('#addclient').modal('hide');
                   }
                 },

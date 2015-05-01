@@ -93,6 +93,21 @@ $( document ).ready(function() {
   </div>
 </div>
 
+<div class="container">
+  <div class="row clearfix">
+    <div class="col-md-10 column">
+      <form class="form-horizontal" role="form" onsubmit="return false;">
+        <div class="form-group">
+           <label for="inputEmail3" class="col-sm-2 control-label">Picture</label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" id="picture" />
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
     <div class="container">
   <div class="row clearfix">
     <div class="col-md-10 column">
