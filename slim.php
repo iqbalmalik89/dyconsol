@@ -123,6 +123,15 @@ function response($code, $dataAry)
         $app->render('careers.html.twig', array('title' => 'Careers', 'jobs' => $jobs['data']));
     });
 
+    $app->get('/clients' , function () use ($app){
+        $testimonialRepo = new TestimonialRepo();
+        $testimonials = $testimonialRepo->getTestimonials(array('status' => 'Show'));
+        //   print_r($testimonials);
+        //$app->render('clients.html.twig', array('title' => 'Careers', 'jobs' => $jobs['data']));
+        $app->render('clients.html.twig', array('title' => 'Clients', 'testimonials' => $testimonials['data']));
+
+    });
+
 
     $app->notFound(function () use ($app) {
         $app->render('404.html.twig', array('title' => 'Not Found'));
