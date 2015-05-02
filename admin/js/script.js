@@ -1038,11 +1038,11 @@ function getSingleTestimonial(id)
 
 function addUpdateTestimonial()
 {
-    var id            = $('#client_id').val();
+    var id            = $('#testimonial_id').val();
     var testimonial   = $('#testimonial').val();
     var client_name   = $('#client_name').val();
     var status        = $('#status').val();    
-    var compny_name   = $('#company_name').val();
+    var company_name   = $('#company_name').val();
     var check         = true;
 
     if(testimonial == '')
@@ -1072,8 +1072,8 @@ function addUpdateTestimonial()
 
     if(check)
     {
-         if(id == '')
-          {          
+         if(id == '' || (typeof id == 'undefined'))
+          {    
               $('#spinner').show();      
               $.ajax({
                 type: 'POST',
@@ -1101,12 +1101,15 @@ function addUpdateTestimonial()
             }
             else
             {
+              var dataObj = {id:id, testimonial:testimonial,client_name:client_name, company_name:company_name, status:status};
+
                 $('#spinner').show();      
+              
               $.ajax({
                 type: 'POST',
                 url: apiUrl + 'edittestimonial',
                 dataType : "JSON",
-                data: {id:id, testimonial:testimonial,client_name:client_name, company_name:company_name, status:status},
+                data: dataObj,
                 beforeSend:function(){
 
                 },
@@ -1141,7 +1144,5 @@ function testimonialReset()
     $('#client_name').val('');
     $('#company_name').val('');
     $('#status').val('Show');
-    //$('#title').val('');
-     var editor =     $('#testimonial').data("wysihtml5").editor
-     editor.setValue('', true);
+    $('#testimonial').val('');
 }

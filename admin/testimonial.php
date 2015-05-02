@@ -15,9 +15,6 @@
 <script>
 $( document ).ready(function() {
   getTestimonials();
-  $('.textarea').wysihtml5({"image": false, "link": false});
-
-  $(prettyPrint);
 });
 
 </script>
