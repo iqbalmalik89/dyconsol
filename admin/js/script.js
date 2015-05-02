@@ -634,11 +634,11 @@ function jobReset()
 
 function addUpdateJob()
 {
-    var id = $('#job_id').val();
-    var title = $('#title').val();
-    var desc = $('#desc').val();
-    var status = $('#status').val();    
-    var check  = true;
+    var id      = $('#job_id').val();
+    var title   = $('#title').val();
+    var desc    = $('#desc').val();
+    var status  = $('#status').val();    
+    var check   = true;
 
     if(title == '')
     {
@@ -743,9 +743,7 @@ function getClients()
                 //options += '<option value="'+value.id+'">'+value.name+' </option>';
                 html += '<tr>\
                             <td>'+value.client_name+'</td>\
-                            <td>'+value.person_name+'</td>\
-                            <td>'+value.testimonial+'</td>\
-                            <td>'+value.picture+'</td>\
+                            <td>'+value.logo+'</td>\
                             <td>'+value.status+'</td>\
                             <td><a href="javascript:void(0);" data-toggle="modal"  onclick="getSingleClient('+value.id+');" data-target="#addclient">Edit</a> |<a href="javascript:void(0);" onclick="deleteClient('+value.id+');">Delete</a></td>\
                          </tr>';
@@ -755,7 +753,7 @@ function getClients()
         else
         { 
             html += '<tr>\
-                        <td colspan="6" align="center">Clients not found</td>\
+                        <td colspan="4" align="center">Clients not found</td>\
                      </tr>';            
         }
 
@@ -808,14 +806,14 @@ function getSingleClient(id)
         
         $('#client_id').val(data.data[0].id);
         $('#client_name').val(data.data[0].client_name);
-        $('#person_name').val(data.data[0].person_name);
+        $('#logo').val(data.data[0].logo);
         $('#status').val(data.data[0].status);
 
       // $('#testimonial').val(data.data[0].testimonial);
 
-  var editor =     $('#testimonial').data("wysihtml5").editor
+//   var editor =     $('#testimonial').data("wysihtml5").editor
 
-editor.setValue(data.data[0].testimonial, true);
+// editor.setValue(data.data[0].testimonial, true);
 
       },
       error:function(jqxhr){
@@ -828,10 +826,8 @@ function addUpdateClient()
 {
     var id            = $('#client_id').val();
     var client_name   = $('#client_name').val();
-    var person_name   = $('#person_name').val();
-    var testimonial   = $('#testimonial').val();
     var status        = $('#status').val();    
-    var picture       = $('#picture').val();
+    var logo          = $('#logo').val();
     var check         = true;
 
     if(client_name == '')
@@ -840,16 +836,10 @@ function addUpdateClient()
         $('#client_name').addClass('error-class');
         check = false;
     }
-    if(person_name == '')
+    if(logo == '')
     {
-        $('#person_name').focus();
-        $('#person_name').addClass('error-class');
-        check = false;
-    }
-    if(testimonial == '')
-    {
-        $('#testimonial').focus();
-        $('#testimonial').addClass('error-class');
+        $('#logo').focus();
+        $('#logo').addClass('error-class');
         check = false;
     }
     if(status == '')
@@ -868,7 +858,7 @@ function addUpdateClient()
                 type: 'POST',
                 url: apiUrl + 'client',
                 dataType : "JSON",
-                data: {client_name:client_name, person_name:person_name,testimonial: testimonial,picture:picture, status:status},
+                data: {client_name:client_name, logo:logo, status:status},
                 beforeSend:function(){
 
                 },
@@ -895,7 +885,7 @@ function addUpdateClient()
                 type: 'POST',
                 url: apiUrl + 'editclient',
                 dataType : "JSON",
-                data: {id:id, client_name:client_name, person_name:person_name,testimonial: testimonial,picture:picture, status:status},
+                data: {id:id, client_name:client_name, logo:logo, status:status},
                 beforeSend:function(){
 
                 },
@@ -927,10 +917,231 @@ function clientReset()
 {
     $('#client_id').val('');
     $('#client_name').val('');
-    $('#person_name').val('');
-    $('#testimonial').val('');
-   // $('#client_id').val('');
+    $('#logo').val('');
+    $('#status').val('Show');
     //$('#title').val('');
-    var editor =     $('#testimonial').data("wysihtml5").editor
-    editor.setValue('', true);
+    // var editor =     $('#testimonial').data("wysihtml5").editor
+    // editor.setValue('', true);
+}
+
+
+/************************************************/
+function getTestimonials()
+{
+  // if(edit)
+  //   sync = false;
+  // else
+  //   sync = true;
+    $.ajax({
+      type: 'GET',
+      url: apiUrl + 'testimonial',
+      dataType : "JSON",
+      data: {},
+      //async:sync,
+      beforeSend:function(){
+
+      },
+      success:function(data){
+        var html = '';
+        var options = '';
+        if(data.data.length > 0)
+        {        console.log(data.data);
+
+            $.each(data.data, function( index, value ) {
+              // if(value.status == 0)
+              //   var status = '<i class="fa fa-times-circle"></i> ';
+              // else
+              //   var status = '<i class="fa fa-check-circle"></i> ';
+
+                //options += '<option value="'+value.id+'">'+value.name+' </option>';
+                html += '<tr>\
+                            <td>'+value.testimonial+'</td>\
+                            <td>'+value.client_name+'</td>\
+                            <td>'+value.company_name+'</td>\
+                            <td>'+value.status+'</td>\
+                            <td><a href="javascript:void(0);" data-toggle="modal"  onclick="getSingleTestimonial('+value.id+');" data-target="#addtestimonial">Edit</a> |<a href="javascript:void(0);" onclick="deleteTestimonial('+value.id+');">Delete</a></td>\
+                         </tr>';
+
+            });            
+        }
+        else
+        { 
+            html += '<tr>\
+                        <td colspan="5" align="center">Testimonials not found</td>\
+                     </tr>';            
+        }
+
+
+
+        $('#testimonialbody').html(html);
+       // $('#cat_id').append(options);
+
+      },
+      error:function(jqxhr){
+      }
+    });
+}
+
+
+function deleteTestimonial(id)
+{
+    $.ajax({
+      type: 'POST',
+      url: apiUrl + 'deletetestimonial',
+      dataType : "JSON",
+      data: {id:id},
+      beforeSend:function(){
+
+      },
+      success:function(data){
+        showMsg('#jobmsg', 'Testimonial deleted successfully.', 'green');
+        getTestimonials();
+      },
+      error:function(jqxhr){
+      }
+    });
+}
+
+function getSingleTestimonial(id)
+{
+    $('#testimonial_id').val(id);
+
+    testimonialReset();  
+    $.ajax({
+      type: 'GET',
+      url: apiUrl + 'testimonial',
+      dataType : "JSON",
+      data: {id:id},
+      beforeSend:function(){
+
+      },
+
+      success:function(data){
+        
+        $('#testimonial_id').val(data.data[0].id);
+        $('#client_name').val(data.data[0].client_name);
+        $('#company_name').val(data.data[0].company_name);
+        $('#status').val(data.data[0].status);
+
+       $('#testimonial').val(data.data[0].testimonial);
+
+   var editor =     $('#testimonial').data("wysihtml5").editor
+
+ editor.setValue(data.data[0].testimonial, true);
+
+      },
+      error:function(jqxhr){
+      }
+    });
+
+}
+
+function addUpdateTestimonial()
+{
+    var id            = $('#client_id').val();
+    var testimonial   = $('#testimonial').val();
+    var client_name   = $('#client_name').val();
+    var status        = $('#status').val();    
+    var compny_name   = $('#company_name').val();
+    var check         = true;
+
+    if(testimonial == '')
+    {
+        $('#testimonial').focus();
+        $('#testimonial').addClass('error-class');
+        check = false;
+    }
+    if(client_name == '')
+    {
+        $('#client_name').focus();
+        $('#client_name').addClass('error-class');
+        check = false;
+    }
+    if(company_name == '')
+    {
+        $('#company_name').focus();
+        $('#company_name').addClass('error-class');
+        check = false;
+    }
+    if(status == '')
+    {
+        $('#status').focus();
+        $('#status').addClass('error-class');
+        check = false;
+    }
+
+    if(check)
+    {
+         if(id == '')
+          {          
+              $('#spinner').show();      
+              $.ajax({
+                type: 'POST',
+                url: apiUrl + 'testimonial',
+                dataType : "JSON",
+                data: {testimonial:testimonial, client_name:client_name, company_name:company_name, status:status},
+                beforeSend:function(){
+
+                },
+                success:function(data){
+                $('#spinner').hide();   
+                $('#addtestimonial').modal('hide');
+                  if(data.status == 'success')
+                  {
+                      showMsg('#jobmsg', 'Testimonial added successfully.', 'green');                    
+                      getTestimonials();
+                      $('#addtestimonial').modal('hide');
+                  }
+                },
+                error:function(jqxhr){
+                  $('#spinner').hide();      
+                  showMsg('#msg', 'Testimonial already exists with this name.', 'red');
+                }
+              });
+            }
+            else
+            {
+                $('#spinner').show();      
+              $.ajax({
+                type: 'POST',
+                url: apiUrl + 'edittestimonial',
+                dataType : "JSON",
+                data: {id:id, testimonial:testimonial,client_name:client_name, company_name:company_name, status:status},
+                beforeSend:function(){
+
+                },
+                success:function(data){
+                $('#addtestimonial').modal('hide');  
+                $('#spinner').hide();      
+                  if(data.status == 'success')
+                  {
+                      showMsg('#jobmsg', 'Testimonial updated successfully.', 'green');                    
+                      getTestimonials();                
+                      $('#addtestimonial').modal('hide');
+                  }
+                },
+                error:function(jqxhr){
+                  $('#spinner').hide();      
+                  showMsg('#jobmsg', 'Testimonial already exists.', 'red');
+                }
+              });
+            }
+    }
+}
+
+function showAddTestimonialPopup()
+{
+    testimonialReset();
+}
+
+function testimonialReset()
+{
+    $('#testimonial_id').val('');
+    //$('#testimonial').val('');
+    $('#client_name').val('');
+    $('#company_name').val('');
+    $('#status').val('Show');
+    //$('#title').val('');
+     var editor =     $('#testimonial').data("wysihtml5").editor
+     editor.setValue('', true);
 }

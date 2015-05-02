@@ -14,10 +14,10 @@
     <![endif]-->
 <script>
 $( document ).ready(function() {
-  getClients();
-  //$('.textarea').wysihtml5({"image": false, "link": false});
+  getTestimonials();
+  $('.textarea').wysihtml5({"image": false, "link": false});
 
-  //$(prettyPrint);
+  $(prettyPrint);
 });
 
 </script>
@@ -36,17 +36,32 @@ $( document ).ready(function() {
 ?>
   <!--main start-->
 <!-- Modal -->
-<div class="modal fade" id="addclient" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-<input type="hidden" id="client_id" value="">
+<div class="modal fade" id="addtestimonial" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<input type="hidden" id="testimonial_id" value="">
   <div class="modal-dialog" style="width:1000px;">
     <div class="modal-content" style="width:1000px;">
       <div class="modal-header">
           <div class="notification-bar" id="msg" style="display: none;"></div>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel"><span id="mode">Add </span> Client</h4>
+        <h4 class="modal-title" id="myModalLabel"><span id="mode">Add </span> Testimonial</h4>
       </div>
       <div class="modal-body" style="width:1000px;">
 
+
+  <div class="container">
+  <div class="row clearfix">
+    <div class="col-md-10 column">
+      <form class="form-horizontal" role="form" onsubmit="return false;">
+        <div class="form-group">
+           <label for="inputEmail3" class="col-sm-2 control-label">Testimonial</label>
+          <div class="col-sm-4" style="width:1000px;">
+          <textarea class="form-control textarea"  style="width:900px; height:300px;" rows="2" id="testimonial"></textarea>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
 
 <div class="container">
   <div class="row clearfix">
@@ -63,20 +78,20 @@ $( document ).ready(function() {
   </div>
 </div>
 
-<!-- <div class="container">
+<div class="container">
   <div class="row clearfix">
     <div class="col-md-10 column">
       <form class="form-horizontal" role="form" onsubmit="return false;">
         <div class="form-group">
-           <label for="inputEmail3" class="col-sm-2 control-label">Person Name</label>
+           <label for="inputEmail3" class="col-sm-2 control-label">Company Name</label>
           <div class="col-sm-4">
-            <input type="text" class="form-control" id="person_name" />
+            <input type="text" class="form-control" id="company_name" />
           </div>
         </div>
       </form>
     </div>
   </div>
-</div> -->
+</div>
 
   <!--   <div class="container">
   <div class="row clearfix">
@@ -93,7 +108,7 @@ $( document ).ready(function() {
   </div>
 </div> -->
 
-<div class="container">
+<!-- <div class="container">
   <div class="row clearfix">
     <div class="col-md-10 column">
       <form class="form-horizontal" role="form" onsubmit="return false;">
@@ -106,7 +121,7 @@ $( document ).ready(function() {
       </form>
     </div>
   </div>
-</div>
+</div> -->
 
     <div class="container">
   <div class="row clearfix">
@@ -132,7 +147,7 @@ $( document ).ready(function() {
       <div class="modal-footer">
         <img src="images/spinner.gif" id="spinner" style="position:absolute; right:150px; display:none;">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" onclick="addUpdateClient();" class="btn btn-primary">Save</button>
+        <button type="button" onclick="addUpdateTestimonial();" class="btn btn-primary">Save</button>
       </div>
     </div>
   </div>
@@ -154,7 +169,7 @@ $( document ).ready(function() {
          <!--col-md-12 start-->
           <div class="col-md-12">
             <div class="page-heading">
-              <h1>Clients  <button type="button" data-toggle="modal" data-target="#addclient" onclick="showAddClientPopup();" class="btn btn-primary">Add Client</button>  </h1>
+              <h1>Testimonials  <button type="button" data-toggle="modal" data-target="#addtestimonial" onclick="showAddTestimonialPopup();" class="btn btn-primary">Add Testimonial</button>  </h1>
             </div>
 
           <div class="notification-bar" id="jobmsg" style="display: none;"></div>
@@ -165,13 +180,14 @@ $( document ).ready(function() {
               <table class="table table-bordered">
                 <thead>
                   <tr>
-                    <th style="width:150px;">Name</th>
-                    <th>Logo</th>
+                    <th style="width:150px;">Testimonial</th>
+                    <th>Client Name</th>
+                    <th>Company Name</th>
                     <th>Status</th>
                     <th style="width:120px;">Actions</th>
                   </tr>
                 </thead>
-                <tbody id="clientsbody">
+                <tbody id="testimonialbody">
 
                 </tbody>
               </table>

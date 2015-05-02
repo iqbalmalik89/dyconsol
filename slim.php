@@ -293,7 +293,7 @@ $app->group('/api', function () use ($app) {
         response($code, array());
     }); 
 
-      // Edit Job
+      // Edit Client
       $app->post('/editclient', function() use ($app){
 
         $new = new ClientsRepo();
@@ -301,7 +301,7 @@ $app->group('/api', function () use ($app) {
         response($code, array());
     }); 
 
-// Get Job(s)
+// Get Client(s)
      $app->get('/client', function() use ($app){
 
         $new = new ClientsRepo();
@@ -309,13 +309,45 @@ $app->group('/api', function () use ($app) {
         response($code['code'], array('data' => $code['data']));
     });  
 
-// Delete Job
+// Delete Client
      $app->post('/deleteclient', function() use ($app){
 
         $new = new ClientsRepo();
         $code = $new->deleteClient($app->requestdata);
         response($code, array());
     });
+
+    // Add Testimonial
+      $app->post('/testimonial', function() use ($app){
+
+        $new = new TestimonialRepo();
+        $code = $new->addTestimonial($app->requestdata);
+        response($code, array());
+    }); 
+
+      // Edit Testimonial
+      $app->post('/edittestimonial', function() use ($app){
+
+        $new = new TestimonialRepo();
+        $code = $new->editTestimonial($app->requestdata);
+        response($code, array());
+    }); 
+
+// Get Testimonial(s)
+     $app->get('/testimonial', function() use ($app){
+
+        $new = new TestimonialRepo();
+        $code = $new->getTestimonials($app->requestdata);
+        response($code['code'], array('data' => $code['data']));
+    });  
+
+// Delete Testimonial
+     $app->post('/deletetestimonial', function() use ($app){
+
+        $new = new TestimonialRepo();
+        $code = $new->deleteTestimonial($app->requestdata);
+        response($code, array());
+    }); 
 
 });
 
