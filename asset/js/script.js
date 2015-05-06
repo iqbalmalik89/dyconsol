@@ -349,7 +349,7 @@ Website: http://abusinesstheme.com
 
 	// vTicker configarations
 	if( $().vTicker ) {
-
+		
 		// For Testimonials
 		if ($("#vticker-testimonials").length) {
 
