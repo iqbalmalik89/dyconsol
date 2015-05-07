@@ -147,18 +147,12 @@ function response($code, $dataAry)
     $app->get('/clients' , function () use ($app, $viewParameters){
         $testimonialRepo = new TestimonialRepo();
         $testimonials = $testimonialRepo->getTestimonials(array('status' => 'Show'));
-<<<<<<< HEAD
+        $clientRepo = new ClientsRepo();
+        $clients = $clientRepo->getClients(array('status' => 'Show'));        
         $viewParameters['title'] = 'Clients';
         $viewParameters['testimonials'] = $testimonials['data'];        
+        $viewParameters['clients'] = $clients['data'];        
         $app->render('clients.html.twig', $viewParameters);
-=======
-        $clientRepo = new ClientsRepo();
-        $clients = $clientRepo->getClients(array('status' => 'Show'));
-        //   print_r($testimonials);
-        //$app->render('clients.html.twig', array('title' => 'Careers', 'jobs' => $jobs['data']));
-        $app->render('clients.html.twig', array('title' => 'Clients', 'testimonials' => $testimonials['data'], 'clients' => $clients['data']));
->>>>>>> b6d62f57cd4c2f7d8bc2c92d1d696fadb5ffaef5
-
     });
 
 
