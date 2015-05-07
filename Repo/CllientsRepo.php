@@ -33,7 +33,12 @@ class ClientsRepo{
 			
 			else
 			{
-				$exists = $GLOBALS['con']->from('clients');
+				if(isset($request['status']))
+				{
+					$exists = $GLOBALS['con']->from('clients')->where('`status`' , $request['status']);
+				}
+				else
+					$exists = $GLOBALS['con']->from('clients');
 				$data = array();
 
 				foreach($exists as $clients)

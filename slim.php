@@ -126,9 +126,11 @@ function response($code, $dataAry)
     $app->get('/clients' , function () use ($app){
         $testimonialRepo = new TestimonialRepo();
         $testimonials = $testimonialRepo->getTestimonials(array('status' => 'Show'));
+        $clientRepo = new ClientsRepo();
+        $clients = $clientRepo->getClients(array('status' => 'Show'));
         //   print_r($testimonials);
         //$app->render('clients.html.twig', array('title' => 'Careers', 'jobs' => $jobs['data']));
-        $app->render('clients.html.twig', array('title' => 'Clients', 'testimonials' => $testimonials['data']));
+        $app->render('clients.html.twig', array('title' => 'Clients', 'testimonials' => $testimonials['data'], 'clients' => $clients['data']));
 
     });
 
