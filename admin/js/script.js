@@ -743,7 +743,7 @@ function getClients()
                 //options += '<option value="'+value.id+'">'+value.name+' </option>';
                 html += '<tr>\
                             <td>'+value.client_name+'</td>\
-                            <td>'+value.logo+'</td>\
+                            <td><img width="150" height="75" src="'+value.web_url+'"></td>\
                             <td>'+value.status+'</td>\
                             <td><a href="javascript:void(0);" data-toggle="modal"  onclick="getSingleClient('+value.id+');" data-target="#addclient">Edit</a> |<a href="javascript:void(0);" onclick="deleteClient('+value.id+');">Delete</a></td>\
                          </tr>';
@@ -805,9 +805,10 @@ function getSingleClient(id)
       success:function(data){
         
         $('#client_id').val(data.data[0].id);
+        $('#logo_path').val(data.data[0].logo);
         $('#client_name').val(data.data[0].client_name);
-        $('#logo').val(data.data[0].logo);
         $('#status').val(data.data[0].status);
+        $('#temp_pic').attr('src', data.data[0].web_url);
 
       // $('#testimonial').val(data.data[0].testimonial);
 
@@ -827,7 +828,7 @@ function addUpdateClient()
     var id            = $('#client_id').val();
     var client_name   = $('#client_name').val();
     var status        = $('#status').val();    
-    var logo          = $('#logo').val();
+    var logo          = $('#logo_path').val();
     var check         = true;
 
     if(client_name == '')
@@ -918,6 +919,8 @@ function clientReset()
     $('#client_id').val('');
     $('#client_name').val('');
     $('#logo').val('');
+    $('#logo_path').val('');
+    $('#temp_pic').attr('src', 'images/logoplaceholder.png');    
     $('#status').val('Show');
     //$('#title').val('');
     // var editor =     $('#testimonial').data("wysihtml5").editor

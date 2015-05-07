@@ -99,8 +99,15 @@ $( document ).ready(function() {
       <form class="form-horizontal" role="form" onsubmit="return false;">
         <div class="form-group">
            <label for="inputEmail3" class="col-sm-2 control-label">Logo</label>
-          <div class="col-sm-4">
-            <input type="text" class="form-control" id="logo" />
+          <div class="col-sm-5">
+<!--             <input type="text" class="form-control" id="logo" /> -->
+
+        <input type="file" id="logo" name="logo" data-url="../api/client_upload" class="file-pos">
+
+        <img src="images/logoplaceholder.png" id="temp_pic" width="150" height="75">
+        <span>Preferred size: 150 X 75</span>
+        <input type="hidden" value="" id="logo_path">
+
           </div>
         </div>
       </form>
@@ -183,7 +190,15 @@ $( document ).ready(function() {
     </div><!--margin-container end--> 
   </div><!--main end--> 
 </div><!--layout-container end--> 
-
+<script>
+    $('#logo').fileupload({
+        dataType: 'json',
+        done: function (e, data) {
+       $('#logo_path').val(data.result.file_name);
+       $('#temp_pic').attr('src',data.result.web_url);
+        }
+    });
+</script>
 
 </body>
 </html>

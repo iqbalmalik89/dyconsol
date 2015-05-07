@@ -46,8 +46,6 @@
 
 <script src="js/jquery.datetimepicker.js"></script>  
 
-<link href="css/fileinput.css" media="all" rel="stylesheet" type="text/css" />
-<script src="../js/fileinput.js" type="text/javascript" /></script>
 <script src="js/jquery.bootpag.js" type="text/javascript" /></script>
 
 
@@ -55,4 +53,5 @@
 <script src="lib/js/wysihtml5-0.3.0.js"></script>
 <script src="lib/js/prettify.js"></script>
 <script src="src/bootstrap-wysihtml5.js"></script>
+<script src="js/jquery.fileupload.js"></script>
 

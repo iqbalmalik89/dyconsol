@@ -44,8 +44,8 @@ function response($code, $dataAry)
     $response->body(json_encode($dataAry));
 }
 
-
-
+    $globalWebUrl = UtilityRepo::getRootPath(false);
+    $viewParameters = ['web_url' => $globalWebUrl];
 
 	$jsonParams = array();
 	$formParams = $app->request->params();
@@ -60,81 +60,103 @@ function response($code, $dataAry)
 
 	$app->requestdata = array_merge($jsonParams, $formParams);
 
-	$app->get('/demo' , function () use ($app){
-        $app->render('demo.html.twig', array('title' => 'Demo'));
+	$app->get('/demo' , function () use ($app, $viewParameters){
+        $viewParameters['title'] = 'Demo';
+        $app->render('demo.html.twig', $viewParameters);
     });
 
-    $app->get('/', function () use ($app) {
-        $app->render('index.html.twig', array('title' => 'Home'));
+    $app->get('/', function () use ($app, $viewParameters) {
+        $viewParameters['title'] = 'Home';        
+        $app->render('index.html.twig', $viewParameters);
     })->name('index');
 
-    $app->get('/index', function () use ($app) {
-        $app->render('index.html.twig', array('title' => 'Home'));
+    $app->get('/index', function () use ($app, $viewParameters) {
+        $viewParameters['title'] = 'Home';
+        $app->render('index.html.twig', $viewParameters);
     })->name('index');
 
-    $app->get('/contact' , function () use ($app){
-        $app->render('contact.html.twig', array('title' => 'Contact Us'));
+    $app->get('/contact' , function () use ($app, $viewParameters){
+        $viewParameters['title'] = 'Contact Us';        
+        $app->render('contact.html.twig', $viewParameters);
     });
 
-    $app->get('/about' , function () use ($app){
-        $app->render('about.html.twig', array('title' => 'About Us'));
+    $app->get('/about' , function () use ($app, $viewParameters){
+        $viewParameters['title'] = 'About Us';        
+        $app->render('about.html.twig', $viewParameters);
     });
 
-    $app->get('/services' , function () use ($app){
-        $app->render('services.html.twig', array('title' => 'Services'));
+
+    $app->get('/services/consulting-services' , function () use ($app, $viewParameters){
+        $viewParameters['title'] = 'Consulting Services';
+        $app->render('consulting_services.html.twig', $viewParameters);
     });
 
-    $app->get('/services/consulting-services' , function () use ($app){
-        $app->render('consulting_services.html.twig', array('title' => 'Consulting Services'));
+    $app->get('/services' , function () use ($app, $viewParameters){
+        $viewParameters['title'] = 'Services';
+        $app->render('services.html.twig', $viewParameters);
     });
 
-    $app->get('/services/project-managed-services' , function () use ($app){
-        $app->render('project_managed_services.html.twig', array('title' => 'Project Managed Services'));
+
+    $app->get('/services/project-managed-services' , function () use ($app, $viewParameters){
+        $viewParameters['title'] = 'Project Managed Services';
+        $app->render('project_managed_services.html.twig', $viewParameters);
     });
 
-    $app->get('/services/business-application-services' , function () use ($app){
-        $app->render('business_application_services.html.twig', array('title' => 'Business Application Services'));
+    $app->get('/services/business-application-services' , function () use ($app, $viewParameters){
+        $viewParameters['title'] = 'Business Application Services';
+        $app->render('business_application_services.html.twig', $viewParameters);
     });
 
-    $app->get('/services/infrastructure-management-services' , function () use ($app){
-        $app->render('infrastructure_management_services.html.twig', array('title' => 'Infrastructure Management Services'));
+    $app->get('/services/infrastructure-management-services' , function () use ($app, $viewParameters){
+        $viewParameters['title'] = 'Infrastructure Management Services';
+        $app->render('infrastructure_management_services.html.twig', $viewParameters);
     });
 
-    $app->get('/utilities' , function () use ($app){
-        $app->render('utilities.html.twig', array('title' => 'Utilities'));
+    $app->get('/utilities' , function () use ($app, $viewParameters){
+        $viewParameters['title'] = 'Utilities';
+        $app->render('utilities.html.twig', $viewParameters);
     });
 
-    $app->get('/retail' , function () use ($app){
-        $app->render('retail.html.twig', array('title' => 'Retail'));
+    $app->get('/retail' , function () use ($app, $viewParameters){
+        $viewParameters['title'] = 'Retail';
+        $app->render('retail.html.twig', $viewParameters);
     });
 
-    $app->get('/banking' , function () use ($app){
-        $app->render('banking.html.twig', array('title' => 'Banking'));
+    $app->get('/technology' , function () use ($app, $viewParameters){
+        $viewParameters['title'] = 'Technology';
+        $app->render('technology.html.twig', $viewParameters);
     });
 
-    $app->get('/admin/' , function () use ($app){
+    $app->get('/banking' , function () use ($app, $viewParameters){
+        $viewParameters['title'] = 'Banking';
+        $app->render('banking.html.twig', $viewParameters);
+    });
+
+    $app->get('/admin/' , function () use ($app, $viewParameters){
         echo "<script>window.location='login.php'</script>";
     });
 
-    $app->get('/careers' , function () use ($app){
+    $app->get('/careers' , function () use ($app, $viewParameters){
         $jobRepo = new JobRepo();
         $jobs = $jobRepo->getJobs(array('status' => 1));
- //           print_r($jobs);
-        $app->render('careers.html.twig', array('title' => 'Careers', 'jobs' => $jobs['data']));
+        $viewParameters['title'] = 'Careers';
+        $viewParameters['jobs'] = $jobs['data'];        
+        $app->render('careers.html.twig', $viewParameters);
     });
 
-    $app->get('/clients' , function () use ($app){
+    $app->get('/clients' , function () use ($app, $viewParameters){
         $testimonialRepo = new TestimonialRepo();
         $testimonials = $testimonialRepo->getTestimonials(array('status' => 'Show'));
-        //   print_r($testimonials);
-        //$app->render('clients.html.twig', array('title' => 'Careers', 'jobs' => $jobs['data']));
-        $app->render('clients.html.twig', array('title' => 'Clients', 'testimonials' => $testimonials['data']));
+        $viewParameters['title'] = 'Clients';
+        $viewParameters['testimonials'] = $testimonials['data'];        
+        $app->render('clients.html.twig', $viewParameters);
 
     });
 
 
-    $app->notFound(function () use ($app) {
-        $app->render('404.html.twig', array('title' => 'Not Found'));
+    $app->notFound(function () use ($app, $viewParameters) {
+        $viewParameters['title'] = 'Not Found';        
+        $app->render('404.html.twig', $viewParameters);
     });
 
 
@@ -357,6 +379,13 @@ $app->group('/api', function () use ($app) {
         $code = $new->deleteTestimonial($app->requestdata);
         response($code, array());
     }); 
+
+     $app->post('/client_upload', function() use ($app){
+        $image = new Image();
+        $resp = $image->uploadTmp($_FILES['logo'], 'client_logos');
+        response($resp['code'], $resp);
+    }); 
+
 
 });
 

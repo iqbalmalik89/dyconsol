@@ -18,6 +18,7 @@ class ClientsRepo{
 
 					foreach($exists as $clients)
 			    	{
+			    		$clients['web_url'] = UtilityRepo::getRootPath(false).'data/client_logos/'.$clients['logo'];			    		
 						$data[] = $clients;
 
 					}
@@ -38,6 +39,7 @@ class ClientsRepo{
 
 				foreach($exists as $clients)
 		    	{
+		    		$clients['web_url'] = UtilityRepo::getRootPath(false).'data/client_logos/'.$clients['logo'];
 					$data[] = $clients;
 
 				}

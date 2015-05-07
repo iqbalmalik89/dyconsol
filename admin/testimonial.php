@@ -177,9 +177,9 @@ $( document ).ready(function() {
               <table class="table table-bordered">
                 <thead>
                   <tr>
-                    <th style="width:150px;">Testimonial</th>
-                    <th>Client Name</th>
-                    <th>Company Name</th>
+                    <th>Testimonial</th>
+                    <th style="width:150px;">Client Name</th>
+                    <th style="width:150px;">Company Name</th>
                     <th>Status</th>
                     <th style="width:120px;">Actions</th>
                   </tr>

@@ -13,24 +13,24 @@
             <meta name="description" content="{% block meta_desc %}{% endblock %}">
             
             <!-- CSS files -->
-            <link rel="stylesheet" href="asset/inc/bootstrap/css/bootstrap.min.css">
+            <link rel="stylesheet" href="{{web_url}}asset/inc/bootstrap/css/bootstrap.min.css">
             <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,400italic,600,700|Raleway:300,400,500,600'>
-            <link rel="stylesheet" href="asset/inc/font-awesome/css/font-awesome.min.css">
-            <link rel="stylesheet" href="asset/inc/animate.css">
+            <link rel="stylesheet" href="{{web_url}}asset/inc/font-awesome/css/font-awesome.min.css">
+            <link rel="stylesheet" href="{{web_url}}asset/inc/animate.css">
             
 
 
             <!-- Main Stylesheets -->
-            <link rel="stylesheet" href="asset/css/style.css">
+            <link rel="stylesheet" href="{{web_url}}asset/css/style.css">
             
 
 
             <!-- Favicons -->
-            <link rel="shortcut icon" href="asset/images/favicon.ico">
-            <link rel="apple-touch-icon" href="asset/images/apple-touch-icon.png">
-            <link rel="apple-touch-icon" sizes="72x72" href="asset/images/apple-touch-icon-72x72.png">
-            <link rel="apple-touch-icon" sizes="114x114" href="asset/images/apple-touch-icon-114x114.png">
-            <link rel="apple-touch-icon" sizes="144x144" href="asset/images/apple-touch-icon-144x144.png">
+            <link rel="shortcut icon" href="{{web_url}}asset/images/favicon.ico">
+            <link rel="apple-touch-icon" href="{{web_url}}asset/images/apple-touch-icon.png">
+            <link rel="apple-touch-icon" sizes="72x72" href="{{web_url}}asset/images/apple-touch-icon-72x72.png">
+            <link rel="apple-touch-icon" sizes="114x114" href="{{web_url}}asset/images/apple-touch-icon-114x114.png">
+            <link rel="apple-touch-icon" sizes="144x144" href="{{web_url}}asset/images/apple-touch-icon-144x144.png">
 
         {% endblock %}
         <meta name="google-translate-customization" content="a9d346f5f401351d-432a2375712e15b5-g0f65ca4e792a5c18-15"></meta>
@@ -62,15 +62,31 @@
 
 
         <!-- Javascript files -->
-        <script src="asset/inc/jquery/jquery-2.1.0.min.js"></script>
-        <script src="asset/inc/bootstrap/js/bootstrap.min.js"></script>
-        <script src="asset/inc/jquery.appear.js"></script>
-        <script src="asset/inc/retina.min.js"></script>
-        <script src="asset/inc/jflickrfeed.min.js"></script>
+        <script src="{{web_url}}asset/inc/jquery/jquery-2.1.0.min.js"></script>
+        <script src="{{web_url}}asset/inc/bootstrap/js/bootstrap.min.js"></script>
+        <script src="{{web_url}}asset/inc/jquery.appear.js"></script>
+        <script src="{{web_url}}asset/inc/retina.min.js"></script>
+        <script src="{{web_url}}asset/inc/jflickrfeed.min.js"></script>
 
         <!-- Main javascript file -->
-        <script src="asset/js/script.js"></script>
-        <script src="asset/js/front.js"></script>
+        <script src="{{web_url}}asset/js/script.js"></script>
+        <script src="{{web_url}}asset/js/vticker.js"></script>
 
+        <script>
+
+
+                if( $().vTicker ) {
+
+        // For Testimonials
+        if ($("#vticker-testimonials").length) {
+
+            $('#vticker-testimonials').vTicker('init', {
+                speed: 700, 
+                pause: 6000
+            });
+        }
+
+    } // END if
+        </script>
     </body>
 </html>
