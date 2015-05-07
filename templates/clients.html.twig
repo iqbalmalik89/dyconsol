@@ -37,8 +37,9 @@
 
 <section class="intro-section testimonials-section custom-bg parallax" data-bg="asset/images/demo/s-106.jpg">
 		<div class="bg-layer op6"></div>
+				{% if testimonials |length > 0 %}
+
 		<div class="container">
-		{% if testimonials |length > 0 %}
 			<div class="row clients-intro">
 				<div class="col-sm-12">
 					<div class="quote-testimonials">
@@ -78,10 +79,32 @@
 				
 			{% else %}
 				
-				We're sorry. Currently no testimonials available. However, drop us your at <b>career@dyconsol.com</b> and we will contact you in future.
+				We're sorry. Currently no testimonials available. 
 {%endif%}
 		</div>
 	</section> 
+
+	<section class="section-3 clients-bg mt0">
+		<div class="container">
+		{% if clients |length > 0 %}
+			<div class="row mb35 mt20">
+					{% for client in clients %}
+				<div class="col-xs-6 col-sm-3">
+					<img src={{client.logo}} height="142" width="142" alt={{client.client_name}}>
+				</div>
+									{%endfor%}
+
+			
+				
+			</div>
+			{% else %}
+				
+				We're sorry. Currently no clients available. 
+
+			{%endif%}
+		</div>
+	</section>
+	
 
 	{% endblock %}
 
