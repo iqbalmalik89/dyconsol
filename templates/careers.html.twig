@@ -25,9 +25,72 @@
 		</div>
 	</header> <!-- END Page Header -->
 
-	<section class="section-4">
 
 
+	<section class="page-faq section-4">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-5 col-md-3">
+					<ul class="nav nav-tabs vertical xs-box2">
+						{% for key, job in jobs %}
+							{% set class = '' %}							
+							{% if key == 0 %}
+								{% set class = 'active' %}
+							{% endif %}
+
+						  	<li class="{{class}}"><a href="#tab{{key}}" data-toggle="tab">{{ job.title }}</a></li>
+						{% endfor %}							
+
+{# 					  	<li class="active"><a href="#tab1" data-toggle="tab">HTML5 and CSS3</a></li>
+					 	<li><a href="#tab2" data-toggle="tab">Wordpress themes</a></li>
+					  	<li><a href="#tab3" data-toggle="tab">Wordpress plugins</a></li>
+					  	<li><a href="#tab4" data-toggle="tab">Joomla</a></li>
+					  	<li><a href="#tab5" data-toggle="tab">Drupal</a></li> #}
+					</ul>
+				</div>
+
+				<div class="col-sm-7 col-md-9">
+					<div class="tab-content mb35">	
+					{% if jobs |length > 0 %}
+						{% for key, job in jobs %}
+							{% set class = '' %}							
+							{% if key == 0 %}
+								{% set class = 'active' %}
+							{% endif %}
+
+						  	<div class="tab-pane fade in {{class}}" id="tab{{key}}">
+								<div class="panel-group" id="accordion">
+	  								<div class="panel panel-4">
+									    <div class="panel-heading">
+									        <h4 class="panel-title">
+									            <a data-toggle="collapse" data-parent="#accordion" href="#{{key}}one">
+									        
+<h2 class="section-title-2">{{job.title}}</h2>									            	
+									            </a>
+									      	</h4>
+									    </div>
+									    <div id="{{key}}one" class="panel-collapse collapse in">
+										    <div class="panel-body">
+												<p>{{ job.desc | raw  }}</p>
+
+										    </div>
+									    </div>
+									</div>
+								</div>
+						  	</div>
+						{% endfor %}
+
+			{% else %}
+				
+				We're sorry. Currently no jobs available. However, drop us your at <b>career@dyconsol.com</b> and we will contact you in future.
+
+			{% endif %}
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+{# 	<section class="section-4">
 
 		<div class="container">
 		{% if jobs |length > 0 %}
@@ -66,7 +129,7 @@
 
 			{% endif %}
 		</div>
-	</section> 
+	</section>  #}
 
 	{% endblock %}
 

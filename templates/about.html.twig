@@ -1,7 +1,7 @@
 {% extends "base.html.twig" %}
 
 {% block title %}{{title}}{% endblock %}
-{% block bodyclass %}{{''}}{% endblock %}
+{% block bodyclass %}{{'top-border'}}{% endblock %}
 
 
 
@@ -15,10 +15,10 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-12">
-					<h1 class="page-title pull-left">Clients</h1>
+					<h1 class="page-title pull-left">About Us</h1>
 					<ol class="breadcrumb pull-right">
 						<li><a href="index">Home</a></li>
-						<li class="active">Clients</li>
+						<li class="active">About Us</li>
 					</ol>
 				</div>
 			</div>
@@ -28,60 +28,88 @@
 	
 
 
-
-		
-		
-
-
-			
-
-<section class="intro-section testimonials-section custom-bg parallax" data-bg="asset/images/demo/s-106.jpg">
-		<div class="bg-layer op6"></div>
+	<section class="section-3 custom-bg large-padding parallax mt0" data-bg="{{web_url}}/asset/images/demo/s-202.jpg">
+		<div class="bg-layer"></div>
 		<div class="container">
-		{% if testimonials |length > 0 %}
-			<div class="row clients-intro">
-				<div class="col-sm-12">
-					<div class="quote-testimonials">
-						<i class="fa fa-quote-left"></i>
+			<div class="row">
+				<div class="col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+					<div class="box-about">
+						<h2 class="section-title st2 mb30">We love what we do</h2>
+						<p class="custom-bg-p text-center mb10">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit dolorem, ea molestiae adipisci et labore aperiam tenetur, magni eaque, alias esse, ex animi tempora deleniti. Natus ullam est, soluta et. Rerum accusamus dolores voluptatem aut reiciendis.</p>
 					</div>
 				</div>
 			</div>
+		</div>
+	</section>
+
+
+	
+	<section class="about-section section">
+		<div class="container">
 			<div class="row">
-				<div class="col-sm-12">
-					<div id="vticker-testimonials" class="vticker-selector">
-						<ul>
-						{% for testimonial in testimonials %}
-							<li>
-								<blockquote>
-									<p>{{testimonial.testimonial}}</p>
-									<footer>
-										<h5>{{testimonial.client_name}}</h5>
-										<p class="small">{{testimonial.company_name}}</p>
-									</footer>
-								</blockquote>
-							</li>
-
-							{%endfor%}
-						</ul>
-					</div>		
-
-
-
-
+				<div class="col-sm-4 xs-box2 br-box">
+					<div class="box-content">
+						<i class="fa fa-star fa-services"></i>
+						<h3>Experience</h3>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab corrupti, quasi.</p>
+					</div>
+				</div>
+				<div class="col-sm-4 xs-box2 br-box">
+					<div class="box-content">
+						<i class="fa fa-weixin fa-services"></i>
+						<h3>Satisfied Customers</h3>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab corrupti, quasi.</p>
+					</div>
+				</div>
+				<div class="col-sm-4 br-box last">
+					<div class="box-content">
+						<i class="fa fa-check-square-o fa-services"></i>
+						<h3>New Concepts</h3>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab corrupti, quasi.</p>
+					</div>
 				</div>
 			</div>
 		</div> <!-- END Container -->
-	</section> <!-- END Testimonials Section -->
-
-
-
-				
-			{% else %}
-				
-				We're sorry. Currently no testimonials available. However, drop us your at <b>career@dyconsol.com</b> and we will contact you in future.
-{%endif%}
-		</div>
 	</section> 
+
+
+	<section class="section-3 section-dark">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-10 col-sm-offset-1">
+					<h2 class="section-title st2 mb25">Reasons to choose us</h2>
+					<div class="text-center">
+						<p class="mb0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi a commodi quae modi beatae quo tempore consectetur ullam amet, error assumenda voluptatibus praesentium eaque minus ad laudantium perspiciatis suscipit, nam fuga labore ut quaerat distinctio.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+
+
+
+<section class="section-4">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12">
+					<h3 class="box-title">About Us</h3>
+					<p>
+Dynamic Consulting and Solutions-DYCONSOL is an Information Technology and Business Process Improvement and Outsourcing company, specializing in the Utility, Banking, Government and Retail Industries. Our objective is to provide reliable and sustainable technology solutions in a timely and quality manner. We are committed to meeting the needs of our clients by equipping and supporting with quality resources in technology. Our solutions are based upon information technology best practices which offer rich functionality to support the diverse needs of our clients. We are constantly seeking to improve and implement appropriate hardware and software for the benefit of our clients. We are always striving to enhance all aspects of technology through industry best practices, services and understanding.						
+					</p>
+					<p>
+Our Business development services provide our clients an impressive edge to tackle issues arising to meet with business performance and cost efficiency goals. Our Project Managers are well trained to handle multi-million dollar projects in IT industry. We manage projects through its various phases, ie, initiation, Planning, Execution, Monitoring and Control and Closure. We deliver an industry standard quality work with a focus on data security, customer’s confidentiality, process audit-ability and change traceability. It is in our instinct behavior to look for ways that can bring continuous improvement to any business processes and procedures.						
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+
+		
+		
 
 	{% endblock %}
 

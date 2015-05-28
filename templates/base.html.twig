@@ -74,8 +74,27 @@
 
         <script>
 
+        $(document).ready(function(){
+            if($('#cloud').length > 0)
+            {
+                $('.smooth_scrolling').on('click',function (e) {
+                    e.preventDefault();
 
+                    var target = this.hash;
+                    var $target = $(target);
+                    var top = ($target.offset().top - 100);
+                    $('html, body').stop().animate({
+                        'scrollTop': top
+                    }, 900, 'swing', function () {
+                        window.location.hash = target;
+                    });
+                });                
+            }
+
+
+        });
                 if( $().vTicker ) {
+
 
         // For Testimonials
         if ($("#vticker-testimonials").length) {

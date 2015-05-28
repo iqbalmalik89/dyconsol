@@ -1,5 +1,5 @@
 <?php
-
+error_reporting(E_ALL);
 require 'vendor/autoload.php';
 
 $app = new \Slim\Slim(array(
@@ -45,7 +45,7 @@ function response($code, $dataAry)
 }
 
     $globalWebUrl = UtilityRepo::getRootPath(false);
-    $viewParameters = ['web_url' => $globalWebUrl];
+    $viewParameters = array("web_url" => $globalWebUrl);
 
 	$jsonParams = array();
 	$formParams = $app->request->params();
@@ -59,6 +59,10 @@ function response($code, $dataAry)
 	}
 
 	$app->requestdata = array_merge($jsonParams, $formParams);
+
+    $app->get('/test' , function () use ($app, $viewParameters){
+        echo 'test';
+    });
 
 	$app->get('/demo' , function () use ($app, $viewParameters){
         $viewParameters['title'] = 'Demo';
@@ -85,8 +89,29 @@ function response($code, $dataAry)
         $app->render('about.html.twig', $viewParameters);
     });
 
+    $app->get('/policy' , function () use ($app, $viewParameters){
+        $viewParameters['title'] = 'Privacy Policy';        
+        $app->render('policy.html.twig', $viewParameters);
+    });
 
-    $app->get('/services/consulting-services' , function () use ($app, $viewParameters){
+    $app->get('/terms' , function () use ($app, $viewParameters){
+        $viewParameters['title'] = 'Terms os use';        
+        $app->render('terms.html.twig', $viewParameters);
+    });
+
+    $app->get('/copyright' , function () use ($app, $viewParameters){
+        $viewParameters['title'] = 'Terms of use';        
+        $app->render('copyright.html.twig', $viewParameters);
+    });
+
+
+
+    $app->get('/about' , function () use ($app, $viewParameters){
+        $viewParameters['title'] = 'About Us';        
+        $app->render('about.html.twig', $viewParameters);
+    });
+
+        $app->get('/services/consulting-services' , function () use ($app, $viewParameters){
         $viewParameters['title'] = 'Consulting Services';
         $app->render('consulting_services.html.twig', $viewParameters);
     });
@@ -102,6 +127,12 @@ function response($code, $dataAry)
         $app->render('project_managed_services.html.twig', $viewParameters);
     });
 
+
+    $app->get('/services/mobile-app-development' , function () use ($app, $viewParameters){
+        $viewParameters['title'] = 'Mobile App Development';
+        $app->render('mobile_app_development.html.twig', $viewParameters);
+    });
+
     $app->get('/services/business-application-services' , function () use ($app, $viewParameters){
         $viewParameters['title'] = 'Business Application Services';
         $app->render('business_application_services.html.twig', $viewParameters);
@@ -112,12 +143,12 @@ function response($code, $dataAry)
         $app->render('infrastructure_management_services.html.twig', $viewParameters);
     });
 
-    $app->get('/utilities' , function () use ($app, $viewParameters){
+    $app->get('/industries/utilities' , function () use ($app, $viewParameters){
         $viewParameters['title'] = 'Utilities';
         $app->render('utilities.html.twig', $viewParameters);
     });
 
-    $app->get('/retail' , function () use ($app, $viewParameters){
+    $app->get('/industries/retail' , function () use ($app, $viewParameters){
         $viewParameters['title'] = 'Retail';
         $app->render('retail.html.twig', $viewParameters);
     });
@@ -127,10 +158,16 @@ function response($code, $dataAry)
         $app->render('technology.html.twig', $viewParameters);
     });
 
-    $app->get('/banking' , function () use ($app, $viewParameters){
+    $app->get('/industries/banking' , function () use ($app, $viewParameters){
         $viewParameters['title'] = 'Banking';
         $app->render('banking.html.twig', $viewParameters);
     });
+
+    $app->get('/industries/government' , function () use ($app, $viewParameters){
+        $viewParameters['title'] = 'Government';
+        $app->render('government.html.twig', $viewParameters);
+    });
+
 
     $app->get('/admin/' , function () use ($app, $viewParameters){
         echo "<script>window.location='login.php'</script>";

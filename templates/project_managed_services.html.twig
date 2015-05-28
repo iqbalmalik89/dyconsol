@@ -15,10 +15,10 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-12">
-					<h1 class="page-title pull-left">Clients</h1>
+					<h1 class="page-title pull-left">Project Management Services</h1>
 					<ol class="breadcrumb pull-right">
 						<li><a href="index">Home</a></li>
-						<li class="active">Clients</li>
+						<li class="active">Project Management Services</li>
 					</ol>
 				</div>
 			</div>
@@ -29,59 +29,58 @@
 
 
 
+
+<section class="section-4">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12">
+
+
+					<div class="content">
+			<div class="row">
+				<div class="col-sm-12">
+					<p>
+Project management services include project planning, project management, and post-implementation review. These services help evaluate, understand, plan, test, and deploy software products. Our service offerings are modular, and can be tailored to each customer’s individual needs and can accommodate specific requirements at a local level.
+
+					</p>
+
+				</div>
+			</div>
+
+
+	<div class="panel panel-4">
+	    <div class="panel-heading">
+	        <h4 class="panel-title">Establish Project Management Office</h4>
+	    </div>
+	    <div class="panel-body">
+	       	<p> The first step Dyconsol takes in deploying a PMO is to assess the current organizational practices and develop a new deployment roadmap incorporating your organization’s culture and operating practices. Our team will work with you to identify, analyze, prioritize, and establish a set of fundamental PMO functions and services. It includes establishing governance standards, prepare the PMO Charter and communications plan, identifying resource needs and performance measures, incorporating the right amount of repeatable delivery processes to fit your culture, and improving the competencies of your staff through training and mentoring. Emphasis is on the PMO providing an organizational entity focused on improving the management of your portfolio.</p>
+	    </div>
+	</div>
+	<div class="panel panel-4">
+	    <div class="panel-heading">
+	        <h4 class="panel-title">Operate Project Manage Office</h4>
+	    </div>
+	    <div class="panel-body">
+	       	<p> Dyconsol helps you to understand your project goals and establish a structure that will achieve core competency. We will evaluate your existing structure in place and will subsidize as required. We prepare project management methodologies and best practices for enterprise-wide deployment. Performance measures are collectively established upfront with you, and progress toward established goals is continually evaluated via quality and performance reviews.</p>
+	    </div>
+	</div>
+
+
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>		
+		
 		
 		
 
 
 			
 
-<section class="intro-section testimonials-section custom-bg parallax" data-bg="asset/images/demo/s-106.jpg">
-		<div class="bg-layer op6"></div>
-		<div class="container">
-		{% if testimonials |length > 0 %}
-			<div class="row clients-intro">
-				<div class="col-sm-12">
-					<div class="quote-testimonials">
-						<i class="fa fa-quote-left"></i>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-sm-12">
-					<div id="vticker-testimonials" class="vticker-selector">
-						<ul>
-						{% for testimonial in testimonials %}
-							<li>
-								<blockquote>
-									<p>{{testimonial.testimonial}}</p>
-									<footer>
-										<h5>{{testimonial.client_name}}</h5>
-										<p class="small">{{testimonial.company_name}}</p>
-									</footer>
-								</blockquote>
-							</li>
 
-							{%endfor%}
-						</ul>
-					</div>		
-
-
-
-
-				</div>
-			</div>
-		</div> <!-- END Container -->
-	</section> <!-- END Testimonials Section -->
-
-
-
-				
-			{% else %}
-				
-				We're sorry. Currently no testimonials available. However, drop us your at <b>career@dyconsol.com</b> and we will contact you in future.
-{%endif%}
-		</div>
-	</section> 
 
 	{% endblock %}
 

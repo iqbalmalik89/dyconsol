@@ -1,8 +1,8 @@
 {% extends "base.html.twig" %}
 
 {% block title %}{{title}}{% endblock %}
-{% block bodyclass %}{{'header-top'}}{% endblock %}
-
+{# {% block bodyclass %}{{'header-top'}}{% endblock %} #}
+{% block bodyclass %}{% endblock %}
 
 
 {% block content %}
@@ -11,17 +11,17 @@
 		<div class="bg-layer op6"></div>
 		<div class="container align-middle">
 			<div class="row">
-				<div class="col-sm-12 col-md-7">
-					<h3 class="flex-subtitle">With so many pages and elements, there are </h3>
-					<h2 class="flex-title">endless possibilities for creating your website</h2>
-					<div class="mt40"><a href="#" class="flex-btn flex-btn2">buy this temlpate</a></div>
+				<div class="col-sm-12 col-md-9">
+{# 					<h3 class="flex-subtitle">With so many pages and elements, there are </h3> #}
+					<h2 class="flex-title">WE'RE AN EMERGING TECH AGENCY THAT BUILDS BREAKTHROUGH PRODUCTS.</h2>
+					<div class="mt40"><a href="{{web_url}}contact" class="flex-btn flex-btn2">Contact Now</a></div>
 				</div>
 			</div>
 		</div>
 	</section>
 
 
-	<section class="large-padding section-gray custom-bg custom-bg2 bg-right parallax" data-bg="asset/images/demo/i-101.png">
+{# 	<section class="large-padding section-gray custom-bg custom-bg2 bg-right parallax" data-bg="asset/images/demo/i-101.png">
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-12 col-md-6">
@@ -45,7 +45,7 @@
 				</div>
 			</div>
 		</div>
-	</section>
+	</section> #}
 
 
 
@@ -54,14 +54,53 @@
 		<div class="container">
 			<div class="row large-padding">
 				<div class="col-sm-8">
-					<h2 class="flex-title br-top-bottom">Responsive Design</h2>
-					<p class="flex-p mb0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic itaque optio, corrupti ut tenetur similique maiores aperiam labore dolorum voluptatum assumenda ullam dolores sit, magnam soluta excepturi porro quam incidunt culpa cumque. Aperiam delectus maiores, veniam nam quis provident accusantium?</p>
+					<h2 class="flex-title br-top-bottom">Assess</h2>
+					<p class="flex-p mb0">When it comes to technology, you need to know where you are before you can move forward.  We help companies gain a clear understanding of their current technology environment in the context of their business goals and strategy.</p>
 				</div>
 			</div>
 		</div>
 	</section>
 
-	<section class="large-padding custom-bg parallax" data-bg="asset/images/demo/s-112.jpg">
+
+	<section class="large-padding custom-bg parallax" data-bg="asset/images/demo/s-109.jpg">
+		<div class="bg-layer"></div>
+		<div class="container">
+			<div class="row large-padding">
+				<div class="col-sm-8">
+					<h2 class="flex-title br-top-bottom">Plan</h2>
+					<p class="flex-p mb0">Determining the direction you want to go and the best route to get there can be challenging. We help companies develop strategic, actionable plans to achieve their business objectives.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+	<section class="large-padding custom-bg parallax" data-bg="asset/images/demo/s-201.jpg">
+		<div class="bg-layer"></div>
+		<div class="container">
+			<div class="row large-padding">
+				<div class="col-sm-8">
+					<h2 class="flex-title br-top-bottom">Build</h2>
+					<p class="flex-p mb0">The processes and top-calibre team we have created enable us to build robust, custom software solutions in an Agile, iterative and collaborative way.  We’ll get your project into production and help you realize the business value you expect.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+	<section class="large-padding custom-bg parallax" data-bg="asset/images/demo/s-202.jpg">
+		<div class="bg-layer"></div>
+		<div class="container">
+			<div class="row large-padding">
+				<div class="col-sm-8">
+					<h2 class="flex-title br-top-bottom">Support</h2>
+					<p class="flex-p mb0">Our work doesn’t end when the build is complete. Our clients remain as partners over the long-term. We stand behind the solutions we provide – and that means facilitating ongoing support, version upgrades and system enhancements.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+{# 	<section class="large-padding custom-bg parallax" data-bg="asset/images/demo/s-112.jpg">
 		<div class="bg-layer"></div>
 		<div class="container">
 			<div class="row large-padding">
@@ -71,10 +110,10 @@
 				</div>
 			</div>
 		</div>
-	</section>
+	</section> #}
 
 
-	<section class="large-padding section-dark custom-bg custom-bg2 bg-left parallax" data-bg="asset/images/demo/i-102.png">
+{# 	<section class="large-padding section-dark custom-bg custom-bg2 bg-left parallax" data-bg="asset/images/demo/i-102.png">
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-12 col-md-6 col-md-offset-6">
@@ -96,10 +135,10 @@
 				</div>
 			</div>
 		</div>
-	</section>
+	</section> #}
 
 
-	<section class="large-padding custom-bg parallax" data-bg="asset/images/demo/s-201.jpg">
+{# 	<section class="large-padding custom-bg parallax" data-bg="asset/images/demo/s-201.jpg">
 		<div class="bg-layer"></div>
 		<div class="container">
 			<div class="row large-padding">
@@ -126,5 +165,5 @@
 				</div>
 			</div>
 		</div>
-	</section>
+	</section> #}
 {% endblock %}

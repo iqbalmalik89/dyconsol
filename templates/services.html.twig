@@ -15,10 +15,10 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-12">
-					<h1 class="page-title pull-left">Clients</h1>
+					<h1 class="page-title pull-left">Services</h1>
 					<ol class="breadcrumb pull-right">
 						<li><a href="index">Home</a></li>
-						<li class="active">Clients</li>
+						<li class="active">Services</li>
 					</ol>
 				</div>
 			</div>
@@ -29,59 +29,66 @@
 
 
 
-		
-		
-
-
-			
-
-<section class="intro-section testimonials-section custom-bg parallax" data-bg="asset/images/demo/s-106.jpg">
-		<div class="bg-layer op6"></div>
+<section class="section-4">
 		<div class="container">
-		{% if testimonials |length > 0 %}
-			<div class="row clients-intro">
+			<div class="row">
 				<div class="col-sm-12">
-					<div class="quote-testimonials">
-						<i class="fa fa-quote-left"></i>
+
+
+					<div class="content">
+			<div class="row">
+				<div class="col-sm-12">
+					<p>
+Building on its varied expertise and domain knowledge, Dyconsol offers clients a wide range IT, BPO and R&D services. These services enable business to "Do Business Better" through optimum use of technology and process excellence and help you to perform in this dynamic market environment
+					</p>
+				</div>
+			</div>
+
+						<div class="row">
+							<div class="col-sm-6 col-md-3 sm-box">
+								<div class="box-content square">
+									<i class="fa fa-users big"></i>
+									<h3>Consulting Services</h3>
+									<p style="height:4px;"></p>
+									<a href="./services/consulting-services" class="read-more">read more</a>
+								</div>
+							</div>
+							<div class="col-sm-6 col-md-3 sm-box">
+								<div class="box-content square">
+									<i class="fa fa-trello big"></i>
+									<h3>Project Management Services</h3>
+{# 									<p>Lorem ipsum dolor sit amet,  elit.</p> #}
+									<a href="./services/project-managed-services" class="read-more">read more</a>
+								</div>
+							</div>
+							<div class="col-sm-6 col-md-3 xs-box">
+								<div class="box-content square">
+									<i class="fa fa-code big"></i>
+									<h3>Application Services</h3>
+									<p style="height:4px;"></p>
+									<a href="./services/business-application-services" class="read-more">read more</a>
+								</div>
+							</div>
+							<div class="col-sm-6 col-md-3">
+								<div class="box-content square">
+									<i class="fa fa-cog big"></i>
+									<h3>Infrastructure Management Services</h3>
+{# 									<p>Lorem ipsum dolor sit amet,  elit.</p> #}
+									<a href="./services/infrastructure-management-services" class="read-more">read more</a>
+								</div>
+							</div>
+						</div>
+
 					</div>
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-sm-12">
-					<div id="vticker-testimonials" class="vticker-selector">
-						<ul>
-						{% for testimonial in testimonials %}
-							<li>
-								<blockquote>
-									<p>{{testimonial.testimonial}}</p>
-									<footer>
-										<h5>{{testimonial.client_name}}</h5>
-										<p class="small">{{testimonial.company_name}}</p>
-									</footer>
-								</blockquote>
-							</li>
-
-							{%endfor%}
-						</ul>
-					</div>		
-
-
-
-
-				</div>
-			</div>
-		</div> <!-- END Container -->
-	</section> <!-- END Testimonials Section -->
-
-
-
-				
-			{% else %}
-				
-				We're sorry. Currently no testimonials available. However, drop us your at <b>career@dyconsol.com</b> and we will contact you in future.
-{%endif%}
 		</div>
-	</section> 
+	</section>		
+		
+
+
+
+
 
 	{% endblock %}
 

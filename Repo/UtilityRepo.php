@@ -10,16 +10,16 @@ class UtilityRepo{
  		if($_SERVER['HTTP_HOST'] == 'localhost')
  		{
  			if($root)
-		 		$dir = $_SERVER['DOCUMENT_ROOT'].DIRECTORY_SEPARATOR.'businessapp'.DIRECTORY_SEPARATOR.'bd'.DIRECTORY_SEPARATOR;
+		 		$dir = $_SERVER['DOCUMENT_ROOT'].DIRECTORY_SEPARATOR.'dyconsol'.DIRECTORY_SEPARATOR;
 		 	else
-		 		$dir = 'http://'.$_SERVER['HTTP_HOST'].'/dyconsol/';
+		 		$dir = 'http://'.$_SERVER['HTTP_HOST'].'/dyconsol/';		 		
  		}
  		else
  		{
  			if($root)
-		 		$dir = $_SERVER['DOCUMENT_ROOT'].DIRECTORY_SEPARATOR.'beta'.DIRECTORY_SEPARATOR;
+		 		$dir = $_SERVER['DOCUMENT_ROOT'].DIRECTORY_SEPARATOR.'dyconsol'.DIRECTORY_SEPARATOR;
 		 	else
-		 		$dir = 'http://'.$_SERVER['HTTP_HOST'].'/beta/';
+		 		$dir = 'http://'.$_SERVER['HTTP_HOST'].'/dyconsol/';
  		}
 
  		return $dir;

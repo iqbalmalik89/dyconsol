@@ -608,9 +608,9 @@ function getSingleJob(id)
 
 //        $('#desc').val(data.data[0].desc);
 
-  var editor =     $('#desc').data("wysihtml5").editor
+      var editor =     $('#desc').data("wysihtml5").editor
 
-editor.setValue(data.data[0].desc, true);
+      editor.setValue(data.data[0].desc, true);
 
       },
       error:function(jqxhr){
